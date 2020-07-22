@@ -1,0 +1,98 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+
+<xwork>
+	<package name="acl_post" extends="webwork-default" systemId="1001" caption="岗位管理">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="addPost" class="com.hnjz.apps.base.post.action.AddPost" caption="添加岗位"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="dirPost" class="com.hnjz.apps.base.post.action.DirPost" caption="查询岗位"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/post/dirpost.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="dirPostRole" class="com.hnjz.apps.base.post.action.DirPostRole" caption="管理岗位角色"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/post/dirpostrole.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="addPostRole" class="com.hnjz.apps.base.post.action.AddPostRole" caption="添加岗位角色"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="delPostRole" class="com.hnjz.apps.base.post.action.DelPostRole" caption="删除岗位角色"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getPostRole" class="com.hnjz.apps.base.post.action.GetPostRole" caption="获取可授权角色"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/post/getpostrole.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doAjaxError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="delPost" class="com.hnjz.apps.base.post.action.DelPost" caption="删除岗位"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="getPost" class="com.hnjz.apps.base.post.action.GetPost" caption="获取岗位" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/post/getpost.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="updPost" class="com.hnjz.apps.base.post.action.UpdPost" caption="修改岗位">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="dirPostRoleMini" class="com.hnjz.apps.base.post.action.DirPostRoleMini" caption="查询可授权角色">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/post/dirpostrolemini.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+	</package>
+</xwork>

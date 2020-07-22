@@ -1,0 +1,70 @@
+<form class="form-horizontal table-form" id="add_user_form" action="table_div_search.html" onsubmit="return divSearch(this,'test_123')">
+	<input type="hidden" name="page.orderFlag" class="order-flag" value="0"> 
+	<input type="hidden" name="page.orderString" class="order-string" value="time">
+	<input type="hidden" name="page.pageSize" class="page-size" value="20">
+	<input type="hidden" name="page.totalPages" class="page-count" value="5">
+	<input type="hidden" name="page.currentPage" class="page-current" value="1">
+	<div class="table-header">
+		<div class="table-search">
+			<ul>
+				<li><input type="text" class="input-medium" placeholder="请输入编号"></li>
+				<li><input type="text" class="input-medium" placeholder="请输入名称"></li>
+				<li>起止时间：<input readonly="true" id="begin_time" class="input-small Wdate" type="text" onFocus="
+					WdatePicker({maxDate:$('#end_time','#add_user_form').val()})"/> 至 <input readonly="true" id="end_time" class="input-small Wdate" type="text" onFocus="WdatePicker({minDate:$('#begin_time','#add_user_form').val()})"/>
+				</li>
+				<li><button class="btn green" type="submit">查询</button></li>
+			</ul>
+		</div>
+		<div class="table-btn">
+			<a class="btn" title="添加数据" href="table_add_form.html" target="cssTab" rel="table_add">添加</a>
+			<div class="btn-group">
+				<a class="btn" onclick="$('#add_user_form').cssTable('delBatch','data/success.json');">删除</a>
+              	<a class="btn" onclick="$('#add_user_form').cssTable('delBatch',{url:'data/success.json',title:'你确定要彻底删除这些记录吗？'});">彻底删除</a>
+			</div>
+            <div class="btn-group">
+				<a class="btn" href="javascript:;">更多</a>
+				<a class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">选项一</a></li>
+                  <li><a href="#">选项二</a></li>
+                  <li><a href="#">选项三</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">选项四</a></li>
+                </ul>
+            </div>
+		</div>
+	</div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th width="20px"><input group="ids" class="cleck-all" type="checkbox"/></th>
+				<th width="120px">操作</th>
+				<th width="20px">编号</th>
+				<th>名称</th>
+				<th width="100px" order-field="time" class="order">时间</th>
+				<th width="20px" order-field="state" class="order">状态</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr rel="1">
+				<td><input name="ids" value="1" type="checkbox"/></td>
+				<td>
+					<a href="table_add_form.html?id=1" target="cssTab"><i class="icon-plus"></i>查看</a>&nbsp;
+					<a href="table_add_form.html?id=1" target="cssTab"><i class="icon-plus"></i>编辑</a>&nbsp;
+					<a href="javascript:;" onclick="$('#add_user_form').cssTable('del','data/success.json?ids=1')"><i class="icon-remove"></i>删除</a>
+				</td>
+				<td>1</td>
+				<td>张三</td>
+				<td>2014-1-1 11:21</td>
+				<td>开启</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="pagination">
+		<ul>
+			<li><a class="page-next" href="javascript:;">下一页</a></li>　
+			<li><a class="page-last" href="javascript:;">尾页</a></li>　
+			<li>第<input class="page-jump" size="3" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" value="1">页 <a href="javascript:;" class="page-go">Go</a> 共8页 每页<input class="page-num" size="3" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" name="page.pageSize" value="10">条 记录总数：<b>76</b>条</li>
+		</ul>
+	</div>
+</form>

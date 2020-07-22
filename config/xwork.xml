@@ -1,0 +1,9 @@
+<!DOCTYPE xwork
+        PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+        "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+<xwork>
+    <include file="webwork-default.xml"/>
+    <include file="webwork-common.xml"/>
+    <!--_xwork-app.xml 依据FunctionProviderPlugin 和 WrappedConfigurationProviderEx 实现动态加载所有模块xwork配置文件-->
+    <include file="_xwork-app.xml"/>
+</xwork>

@@ -1,0 +1,152 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+
+<xwork>
+	<package name="oa_dataexsysnode" extends="webwork-default" systemId="1001" caption="交换系统交换节点管理">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="dirDataexSysNode" class="com.hnjz.apps.oa.dataexsysnode.action.DirDataexSysNode" caption="列出交换节点列表"   event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/dataexsysnode/dirdataexsysnode.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="addDataexSysNode" class="com.hnjz.apps.oa.dataexsysnode.action.AddDataexSysNode" caption="添加交换节点"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="delDataexSysNode" class="com.hnjz.apps.oa.dataexsysnode.action.DelDataexSysNode" caption="删除交换节点"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getDataexSysNode" class="com.hnjz.apps.oa.dataexsysnode.action.GetDataexSysNode" caption="获取交换节点"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/dataexsysnode/getdataexsysnode.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="updDataexSysNode" class="com.hnjz.apps.oa.dataexsysnode.action.UpdDataexSysNode" caption="修改交换节点"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="updDataexSysNodeStatus" class="com.hnjz.apps.oa.dataexsysnode.action.UpdDataexSysNodeStatus" caption="修改交换节点状态" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="dirDataexSysDirWs" class="com.hnjz.apps.oa.dataexsys.admin.action.DirDataexSysDirWs" caption="目录接口配置查询">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/dirDataexSysDirWs.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="getDataexSysDirWs" class="com.hnjz.apps.oa.dataexsys.admin.action.GetDataexSysDirWs" caption="获取目录接口配置">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/getDataexSysDirWs.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="addDataexSysDirWs" class="com.hnjz.apps.oa.dataexsys.admin.action.AddDataexSysDirWs" caption="目录接口配置添加">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack"/>
+		</action>
+		<action name="updDataexSysDirWs" class="com.hnjz.apps.oa.dataexsys.admin.action.UpdDataexSysDirWs" caption="目录接口配置修改">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="delDataexSysDirWs" class="com.hnjz.apps.oa.dataexsys.admin.action.DelDataexSysDirWs" caption="目录接口配置删除">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<!-- 方正交换appid配置 -->
+		<action name="dirDataexSysAppid" class="com.hnjz.apps.oa.dataexsysnode.action.DirDataexSysAppid" caption="列出交换appid列表"   event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/dataexsysnode/dirdataexsysappid.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="addDataexSysAppid" class="com.hnjz.apps.oa.dataexsysnode.action.AddDataexSysAppid" caption="添加交换appid"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="delDataexSysAppid" class="com.hnjz.apps.oa.dataexsysnode.action.DelDataexSysAppid" caption="删除交换appid"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getDataexSysAppid" class="com.hnjz.apps.oa.dataexsysnode.action.GetDataexSysAppid" caption="获取交换appid"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/dataexsysnode/getdataexsysappid.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="updDataexSysAppid" class="com.hnjz.apps.oa.dataexsysnode.action.UpdDataexSysAppid" caption="修改交换appid"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+	</package>
+</xwork>
+

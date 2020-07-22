@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.hnjz.apps.oa.dataexsysnode.model.DataexSysNode" table="DATAEX_SYS_NODE">
+		<id name="exnodeId" type="java.lang.String">
+			<column name="NODE_ID" length="32" />
+			<generator class="assigned"></generator>
+		</id>
+		<property name="exnodeName" type="java.lang.String">
+			<column name="NODE_NAME" length="20" />
+		</property>
+		<property name="exnodeIp" type="java.lang.String">
+			<column name="NODE_IP" length="30" />
+		</property>
+		<property name="exnodeProvider" type="java.lang.String">
+			<column name="NODE_PROVIDER" length="10" />
+		</property>
+		<property name="exnodeType" type="java.lang.String">
+			<column name="NODE_TYPE" length="10" />
+		</property>
+		<property name="exnodeStatus" type="java.lang.String">
+			<column name="NODE_STATUS" length="10" />
+		</property>
+		<!-- <property name="compress" type="java.lang.String">
+			<column name="COMPRESS" length="10" />
+		</property> -->
+		<property name="signature" type="java.lang.String">
+			<column name="SIGNATURE" length="10" />
+		</property>
+		<!-- <property name="encryption" type="java.lang.String">
+			<column name="ENCRYPTION" length="10" />
+		</property> -->
+		<property name="serverId" type="java.lang.Integer">
+			<column name="SERVER_ID" length="10" />
+		</property>
+		<property name="certPath" type="java.lang.String">
+			<column name="CERT_PATH" length="200" />
+		</property>
+		<property name="createdTime" type="java.util.Date">
+			<column name="CREATED_TIME" length="10" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0Transitional//EN” ttp://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”>
+<html xmlns=”http://www.w3.org/1999/xhtml”>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../custom/style.css" />
+</head>
+<body>
+	<div class="main" id="main_h">
+		<div class="mod_905" id="mod_950_w">
+			<div class="bg"></div>
+		</div>
+		<div class="mod_415">
+			<div class="header">
+				<div class="logo"></div>
+				<div class="title">综合管理平台</div>
+			</div>
+			<div class="cont">
+				<div class="login">
+					<form id="login-form" action="login.action" method="post">
+						<p class="account">
+							<span class="type"></span>
+							<input type="text" class="required" title="请输入用户名！" name="sUser.loginName" id="name" />
+							<i class=""></i>
+						</p>
+						<p class="password">
+							<span class="type"></span>
+							<input type="password" class="required" title="请输入密码！" name="sUser.password" id="pwd" />
+							<i class=""></i>
+						</p>
+						<p class="auth">
+							<span class="type"></span>
+							<input type="text" class="required" title="请输入验证码！" name="checkCode" id="code" />
+							<span class="code"></span>
+							<i class="refresh"></i>
+						</p>
+						<p class="rmb">
+							<span><input type="checkbox" name="autoLogin" value="1" id="remember" />记住密码</span>
+						</p>
+						<a herf="#" class="submit" onclick="$(this).parents('form').submit();">登录</a>
+					</form>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="copyright">
+					<p>版权所有: 中国软件与技术股份有限公司</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../cssui/js/easyloader.js"></script>
+	<script type="text/javascript">
+	var ENTER = 13;
+	using('jquery',function(){
+		
+		using('cookie',function(){
+		})
+
+		using('validate',function(){
+		  $('#login-form').validate({
+		    focusInvalid: true, 
+		    ignore: "",
+		    onkeyup: false,
+
+		    errorPlacement: function (label, element) { 
+		    	$('<div class="msg"></div>').insertAfter(element.parent()).append(label);
+		    	$(element).next('i').attr('class','invalid');
+		    },
+
+		    success: function (label, element) {
+		    	$(element).next('i').attr('class','valid');
+		    },
+
+		    submitHandler: function (form) {
+		    }
+
+		  }); 
+		})
+		
+		$('#name').keyup(onKeyUp)
+
+		$('#pwd').keyup(onKeyUp);
+
+		$('#code').keyup(onKeyUp)
+
+		mod_950_w();
+
+		$(window).resize(function(){
+			mod_950_w();
+		})
+	})
+
+	function onKeyUp(event){
+		if(event.keyCode==ENTER){
+			if($('#name').val() && $('#pwd').val() && $('#code').val())
+				$(this).parents('form').submit();
+		}
+	}
+
+	function mod_950_w(){
+		document.getElementById("mod_950_w").style.width = document.documentElement.clientWidth - 430 + "px";
+	}
+	</script>
+</body>
+</html>

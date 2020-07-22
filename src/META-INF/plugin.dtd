@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT plugins (plugin*)>
+<!ELEMENT plugin (name,load-level?,plugin-config?)>
+<!ATTLIST plugin
+	key   CDATA   #IMPLIED
+	id 	  CDATA   #REQUIRED 
+	class CDATA   #IMPLIED	
+	singleton  CDATA #IMPLIED
+	type  	CDATA 	#IMPLIED
+	alias 	CDATA   #IMPLIED
+>
+
+<!ELEMENT name (#PCDATA) >
+<!ELEMENT load-level (#PCDATA) >
+
+<!ELEMENT plugin-config ANY>
+<!ATTLIST plugin-config
+	src CDATA  #IMPLIED
+>

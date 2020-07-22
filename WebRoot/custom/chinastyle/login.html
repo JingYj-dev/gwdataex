@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>电子公文处理系统</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+	function wh(){
+		document.getElementById("main").style.marginTop = ( document.documentElement.clientHeight - 750 ) / 2 + "px";
+	}
+	</script>
+</head>
+<body onload="wh()"; onresize="wh();">
+	<div class="main" id="main">
+		<div class="mod_l"></div>
+		<div class="mod_r" id="mod_r">
+			<form id="login-form" action="login.action" method="post" onsubmit="return validateCallback(this,loginCallback)">
+			<input type="hidden" name="sUser.password" id="pwd"/>
+				<div class="title">电子公文处理系统</div>
+				<div class="wel_txt">请登录</div>
+					<p class="account">
+						<span class="type"></span>
+						<input type="text" class="required csspwd" title="用户名不能为空，且不包含空格！" name="sUser.loginName" id="name" value="test1"/>
+						<i class=""></i>
+					</p>
+					<p class="password">
+						<span class="type"></span>
+						<input type="password" class="required csspwd" title="密码不能为空，且不包含空格！" name="password" id="password" value="111111"/>
+						<i class=""></i>
+					</p>
+					<p class="auth">
+						<span class="type"></span>
+						<input type="text" class="required" maxlength="4" title="请输入验证码！" name="checkCode" id="code" />
+						<i class="refresh" onclick="newImg();"></i>
+					</p>
+					<div class="btn"><a herf="#" class="submit" onclick="$(this).parents('form').submit();">登 录</a>
+					<a herf="#" class="reset" onclick='loginReset();'>取 消</a></div>
+				</form>
+		</div>
+		<div style="clear:both;"></div>
+		<embed width="0" height="0" type="application/browser-username-extension"  id="pluginId">
+	</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+#layoutSection {
+	width: 100%;
+	overflow: hidden;
+	margin:auto;
+	min-height:400px;
+}
+.connected.list1{
+	width: 100%;
+}
+.connected.list2{
+	width: 49%;
+}
+.connected.list21{
+	width: 212px;
+	_width: 210px;
+}
+.connected.list22{
+	width: 484px;
+	_width: 478px;
+}
+.connected.list3{
+	width: 228px;
+	_width: 226px;
+}
+.connected.list31{
+	width: 180px;
+	_width: 179px;
+}
+.connected.list32{
+	width: 324px;
+	_width: 320px;
+}
+.connected.list33{
+	width: 180px;
+	_width: 178px;
+}

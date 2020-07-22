@@ -1,0 +1,91 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+<xwork>
+	<package name="acl_menu" extends="webwork-default" systemId="1001" caption="菜单管理">
+		<default-interceptor-ref name="defaultStack" />
+	    <action name="dirMenu" class="com.hnjz.apps.base.menu.action.DirMenu" caption="菜单列表"  event-type="12">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/menu/dirsmenu.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getMenuTree" class="com.hnjz.apps.base.menu.action.GetMenuTree" caption="获取菜单树"  event-type="12">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="dirmenuMin" class="com.hnjz.apps.base.menu.action.DirMenu" caption="获取菜单"  event-type="12">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/menu/dirsmenumin.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doAdminError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="delMenu" class="com.hnjz.apps.base.menu.action.DelMenu" caption="删除菜单"  event-type="12">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="getMenu" class="com.hnjz.apps.base.menu.action.GetMenu" caption="获取菜单"  event-type="12">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/menu/getmenu.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="addMenu" class="com.hnjz.apps.base.menu.action.AddMenu" caption="添加菜单"  event-type="12">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="updMenu" class="com.hnjz.apps.base.menu.action.UpdMenu" caption="修改菜单"  event-type="12">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="xmlMenu" class="com.hnjz.apps.base.menu.action.XmlMenu" caption="生成菜单XML"  event-type="12">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="updMenuStatus" class="com.hnjz.apps.base.menu.action.UpdMenuStatus" caption="菜单状态"  event-type="12">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+	</package>
+</xwork>

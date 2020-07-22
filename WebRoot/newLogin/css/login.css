@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+.gwloginBody{ background:url(../images/gwlogin_bg2.jpg) center center no-repeat; background-size:100%;}
+.gwloginBody .login{width:499px; height:425px; margin:0px auto; position:relative; overflow:visible;}
+.gwloginBody .login .login_contentBg{ width:737px; height:458px; background:url(../images/login_contentBg.png) no-repeat; position:absolute; left:-119px; top:-30px; z-index:10;}
+.gwloginBody .login .tit{ height:56px;}
+.gwloginBody .login .ulCon{ width:499px; height:315px; position:absolute; left:0px; top:104px; z-index:11;}
+.gwloginBody .login .ulCon li{ height:68px; width:382px; margin:0px auto; position:relative;}
+.gwloginBody .login .ulCon li.li1{ margin-top:75px;} 
+.gwloginBody .login .ulCon li input.txt{/*带border总宽382px,高46px*/ padding-left:55px; padding-right:10px; border:1px solid #dddddd; width:380px; height:44px; line-height:44px; font-family:"Microsoft YaHei"; font-size:14px; color:#484848; background:#ffffff; border-radius:4px;}
+.gwloginBody .login .ulCon li.li1 span, .gwloginBody .login .ulCon li.li2 span{ display:inline-block; width:18px;  overflow:hidden;  position:absolute; left:12px; top:15px; text-indent:-999999px;}
+.gwloginBody .login .ulCon li.li1 span{height:20px;top:15px;background:url(../images/login_iconUsername.png) no-repeat;}
+.gwloginBody .login .ulCon li.li2 span{height:25px;top:11px;background:url(../images/login_iconPassword.png) no-repeat;}
+.gwloginBody .login .ulCon li.li3{ height:46px;}
+.gwloginBody .login .ulCon li.li3 input.loginS{ width:382px; height:46px; background:url(../images/login_loginBtn.png) no-repeat; line-height:46px; outline:none; border:0px none; color:#ffffff; font-family:"Microsoft YaHei"; font-size:20px;}
+.gwloginBody .login .title{
+	margin-top: 45px;
+	margin-bottom: 25px;
+	font-size: 32px;
+	color: #0880C4;
+	line-height: 45px;
+	text-align: center;
+}
+
+.ulCon label.error{ color:red;}
+
+
+
+
+
+
+

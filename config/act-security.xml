@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:s="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+
+    <s:http pattern="/static/**" security="none"/>
+    <s:http pattern="/login.jsp" security="none"/>
+    <!--    <s:http pattern="/services/**" security="none" />-->
+    <!--    <s:http pattern="/ie.jsp" security="none" />-->
+    <!--    <s:http pattern="/loginre.jsp" security="none" />-->
+    <!--    <s:http pattern="/**/**.mo" security="none" />-->
+    <!--    <s:http pattern="/servlet/**" security="none" />-->
+    <!-- 单点登陆未做,暂时这些连接不拦截 -->
+    <!--    <s:http pattern="/getMyCss.json" security="none" />-->
+    <!--    <s:http pattern="/saveMyCss.json" security="none" />-->
+    <!-- 个人日程安排接口(工作台) 不拦截 -->
+    <!--    <s:http pattern="/cssportalScheduleInfo.action" security="none" />-->
+    <!--    <s:http pattern="/cssportalDaibanInfo.action" security="none" />-->
+
+    <!-- 对外接口，由接口统一负责安全调用，不进行拦截 -->
+    <!--    <s:http pattern="/API/**" security="none" />-->
+    <!--    <s:http pattern="/file2Pdf/**" security="none" />-->
+    <!--    <s:http pattern="/preview/**" security="none" />-->
+    <!--    <s:http pattern="/licenceAuth/**" security="none" />-->
+    <!--    <s:http pattern="/DataexUtil" security="none" />-->
+    <!--    <s:http pattern="/docmgr/**" security="none" />-->
+    <!-- 门户单点登录、退出 -->
+    <!--    <s:http pattern="/SSO/**" security="none" />-->
+    <!--    <s:http pattern="/portallogin.jsp" security="none" />-->
+    <!-- 数据同步接口 -->
+    <!--    <s:http pattern="/DS/**" security="none" />-->
+    <!-- 在线督查跳转发文页面接口 -->
+    <!--    <s:http pattern="/zxdcPushService" security="none" />-->
+    <!-- 移动办公对接接口 -->
+    <!--    <s:http pattern="/ydbg/**" security="none" />-->
+    <!--    <s:http pattern="/sjtb/**" security="none" />-->
+    <!-- 会议对接公文接口 -->
+    <!--    <s:http pattern="/meeting/**" security="none" />-->
+
+
+    <!-- 用户需要登录时跳转的地址 -->
+<!--    <bean id="authenticationEntryPoint" class="com.hnjz.base.web.security.AuthenticationEntryPoint">-->
+<!--        <property name="loginFormUrl" value="/loginre.jsp"/>-->
+<!--        &lt;!&ndash;<property name="loginFormUrl" value="/Dingtalkssologin" />&ndash;&gt;-->
+<!--    </bean>-->
+    <!-- 当访问被拒绝时，会转到403.jsp   -->
+<!--    <s:http access-denied-page="/403.jsp" entry-point-ref="authenticationEntryPoint">-->
+<!--        <s:logout logout-success-url="/login.jsp"/>-->
+<!--        &lt;!&ndash; 增加一个filter，这点与Acegi是不一样的，不能修改默认的filter了，这个filter位于FILTER_SECURITY_INTERCEPTOR之前&ndash;&gt;-->
+<!--        <s:custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>-->
+<!--        <s:custom-filter ref="customLoginFilter" position="FORM_LOGIN_FILTER"/>-->
+<!--    </s:http>-->
+
+    <!--    <bean id="customLoginFilter" class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">-->
+    <!--        &lt;!&ndash; 校验登录是否有效的虚拟url &ndash;&gt;-->
+    <!--        <property name="filterProcessesUrl" value="/j_spring_security_check" />-->
+    <!--        <property name="authenticationManager" ref="authenticationManager" />-->
+    <!--        <property name="postOnly" value="false" />-->
+    <!--        <property name="usernameParameter" value="j_username" />-->
+    <!--        <property name="passwordParameter" value="j_password" />-->
+    <!--        <property name="authenticationSuccessHandler" ref="loginSuccess" />-->
+    <!--        <property name="authenticationFailureHandler" ref="loginFail" />-->
+    <!--        <property name="sessionAuthenticationStrategy" ref="sas"/>-->
+    <!--    </bean>-->
+
+
+    <!-- 一个自定义的filter，必须包含authenticationManager,accessDecisionManager,securityMetadataSource三个属性，
+        我们的所有控制将在这三个类中实现，解释详见具体配置 -->
+<!--    <bean id="filterSecurityInterceptor"-->
+<!--          class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">-->
+<!--        <property name="authenticationManager" ref="authenticationManager"/>-->
+<!--        <property name="accessDecisionManager" ref="dbAccessDecisionManagerBean"/>-->
+<!--        <property name="securityMetadataSource" ref="securityMetadataSource"/>-->
+<!--    </bean>-->
+<!--    <bean id="daoAuthenticationProvider"-->
+<!--          class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">-->
+<!--        <property name="userDetailsService" ref="userDetailServiceImpl"/>-->
+<!--        &lt;!&ndash; 当用户不存在时，能够抛出UsernameNotFoundException异常 &ndash;&gt;-->
+<!--        <property name="hideUserNotFoundExceptions" value="false"/>-->
+<!--        <property name="passwordEncoder" ref="passwordEncoder"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="sas" class="org.springframework.security.web.authentication.session.ConcurrentSessionControlStrategy">-->
+<!--        <constructor-arg>-->
+<!--            <ref bean="sessionRegistry"/>-->
+<!--        </constructor-arg>-->
+<!--    </bean>-->
+<!--    <bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl"/>-->
+
+    <!-- 认证管理器，实现用户认证的入口，主要实现UserDetailsService接口即可 -->
+<!--    <s:authentication-manager alias="authenticationManager">-->
+<!--        <s:authentication-provider ref="daoAuthenticationProvider"/>-->
+<!--    </s:authentication-manager>-->
+
+
+    <bean id="passwordEncoder"
+          class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
+
+<!--    <bean id="userDetailServiceImpl"-->
+<!--          class="com.hnjz.base.web.security.UserDetailsServiceImpl">-->
+<!--        <property name="dao" ref="dao"/>-->
+<!--    </bean>-->
+
+    <!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源 -->
+<!--    <bean id="dbAccessDecisionManagerBean"-->
+<!--          class="com.hnjz.base.web.security.DbAccessDecisionManager">-->
+<!--    </bean>-->
+
+    <!-- 资源源数据定义，即定义某一资源可以被哪些角色访问 -->
+<!--    <bean id="securityMetadataSource"-->
+<!--          class="com.hnjz.base.web.security.DbInvocationSecurityMetadataSource">-->
+<!--        <property name="securityData" ref="securityData"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="securityData"-->
+<!--          class="com.hnjz.base.web.security.SecurityData">-->
+<!--        <property name="dao" ref="dao"/>-->
+<!--    </bean>-->
+
+    <!-- 用户登录失败 -->
+<!--    <bean id="loginFail"-->
+<!--          class="com.hnjz.base.web.security.LoginFail">-->
+<!--        &lt;!&ndash;<property name="url" value="Dingtalkssologin" />&ndash;&gt;-->
+<!--        <property name="url" value="login.jsp"/>-->
+<!--    </bean>-->
+
+    <!-- 用户登录成功 -->
+<!--    <bean id="loginSuccess"-->
+<!--          class="com.hnjz.base.web.security.loginSuccess">-->
+<!--        <property name="url" value="ire.htm"/>-->
+<!--    </bean>-->
+
+</beans>

@@ -1,0 +1,42 @@
+<div class="page-header">
+  <h5>添加数据</h5>
+</div>
+<form class="form-horizontal form-validate" method="post" action="data/success.json" onsubmit="return validateCallback(this, navTabAjaxDone,'table_basic');">
+  <div layoutH="84">
+    <div class="control-group">
+      <label class="control-label">名称</label>
+      <div class="controls">
+        <input type="text" placeholder="请输入名称" name="name" minlength="6" maxlength="20" class="input-xlarge required">
+        <p class="help-block">提示性描述</p>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">时间</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+        <p class="help-block">提示性描述</p>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">状态</label>
+      <div class="controls">
+        <label class="radio">
+          <input type="radio" value="Option one" name="group" checked="checked">选项一</label>
+        <label class="radio">
+          <input type="radio" value="Option two" name="group">选项二</label>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">描述</label>
+      <div class="controls">
+        <div class="textarea">
+          <textarea rows="10" class="input-xxlarge"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="set-btn">
+    <button class="btn save" type="submit">保存</button>
+    <a class="btn" target="closeTab">取消</a>
+  </div>
+</form>

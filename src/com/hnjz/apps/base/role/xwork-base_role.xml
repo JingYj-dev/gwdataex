@@ -1,0 +1,83 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+
+<xwork>
+	<package name="acl_role" extends="webwork-default" systemId="1001" caption="角色管理">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="addRole" class="com.hnjz.apps.base.role.action.AddRole" caption="添加角色" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="dirRole" class="com.hnjz.apps.base.role.action.DirRole" caption="查询角色" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/role/dirrole.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getRole" class="com.hnjz.apps.base.role.action.GetRole" caption="获取角色" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/role/getrole.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="delRole" class="com.hnjz.apps.base.role.action.DelRole" caption="删除角色" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="updRole" class="com.hnjz.apps.base.role.action.UpdRole" caption="修改角色" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		 <action name="getRoleFuncTree" class="com.hnjz.apps.base.role.action.GetRoleFuncTree" caption="获取角色功能树" event-type="5">
+           <result name="success" type="dispatcher">
+               <param name="location">/acl/role/getrolefunctree.jsp</param>
+           </result>
+			<result name="error" type="dispatcher">
+				<param name="location">doAjaxError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+        </action>
+		<action name="addRoleFunc"
+			class="com.hnjz.apps.base.role.action.AddRoleFunc" caption="添加角色功能" event-type="4">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="updRoleStatus"
+			class="com.hnjz.apps.base.role.action.UpdRoleStatus" caption="修改角色状态"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+	</package>
+</xwork>

@@ -1,0 +1,84 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.0//EN" "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+<xwork>
+    <package name="webwork-default">
+        <result-types>
+            <result-type name="dispatcher" class="com.opensymphony.webwork.dispatcher.ServletDispatcherResult" default="true"/>
+            <result-type name="redirect" class="com.opensymphony.webwork.dispatcher.ServletRedirectResult"/>
+            <result-type name="chain" class="com.opensymphony.xwork.ActionChainResult"/>
+            <result-type name="httpheader" class="com.opensymphony.webwork.dispatcher.HttpHeaderResult"/>
+            <result-type name="stream" class="com.opensymphony.webwork.dispatcher.StreamResult"/>
+            <result-type name="xml" class="com.opensymphony.webwork.dispatcher.XmlResult"/>
+            <result-type name="json" class="com.opensymphony.webwork.dispatcher.JsonResult"/>
+        </result-types>
+        <interceptors>
+            <interceptor name="timer" 	class="com.opensymphony.xwork.interceptor.TimerInterceptor"/>
+            <interceptor name="logger" 	class="com.opensymphony.xwork.interceptor.LoggingInterceptor"/>
+            <interceptor name="chain" 	class="com.opensymphony.xwork.interceptor.ChainingInterceptor"/>
+            <interceptor name="static-params" class="com.opensymphony.xwork.interceptor.StaticParametersInterceptor"/>
+            <interceptor name="params" 		 class="com.opensymphony.xwork.interceptor.ParametersInterceptor"/>
+            <interceptor name="model-driven" class="com.opensymphony.xwork.interceptor.ModelDrivenInterceptor"/>
+            <interceptor name="component"    class="com.opensymphony.xwork.interceptor.component.ComponentInterceptor"/>
+            <interceptor name="prepare"      class="com.opensymphony.xwork.interceptor.PrepareInterceptor"/>
+            <interceptor name="fileUpload"   class="com.opensymphony.webwork.interceptor.FileUploadInterceptor"/>
+			<interceptor name="fieldHtmlTag" class="com.hnjz.webbase.webwork.interceptors.HtmlInterceptor"/>
+			<interceptor name="csslogger" 	 class="com.hnjz.webbase.webwork.interceptors.CssLogInterceptor"/>
+			<interceptor name="plugin"     	 class="com.hnjz.webbase.webwork.interceptors.PluginInterceptor"/>
+            <!-- Basic stack -->
+            <interceptor-stack name="defaultStack">
+                <interceptor-ref  name="prepare"/>
+                <interceptor-ref  name="static-params"/>
+                <interceptor-ref name="fieldHtmlTag"/>
+                <interceptor-ref  name="params"/>
+                <!--<interceptor-ref name="csslogger"/>-->
+            </interceptor-stack>
+
+            <!-- Sample file upload stack -->
+            <interceptor-stack name="fileUploadStack">
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="params"/>
+            </interceptor-stack>
+
+	         <!-- Sample model-driven stack  -->
+            <interceptor-stack name="modelDrivenStack">
+                <interceptor-ref name="model-driven"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+
+            <!-- Sample action chaining stack -->
+            <interceptor-stack name="chainStack">
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+
+ 
+            <!-- A complete stack with all the common interceptors in place.
+                 Generally, this stack should be the one you use, though it
+                 may process additional stuff you don't need, which could
+                 lead to some performance problems. Also, the ordering can be
+                 switched around (ex: if you wish to have your components
+                 before prepare() is called, you'd need to move the component
+                 interceptor up -->
+            <!-- <interceptor-stack name="completeStack">
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="servlet-config"/>
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="model-driven"/>
+                <interceptor-ref name="component"/>
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="static-params"/>
+                <interceptor-ref name="params"/>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation"/>
+                <interceptor-ref name="workflow"/>
+            </interceptor-stack> -->
+        </interceptors>
+	  <global-results>
+		   <!--<result name="login" type="dispatcher">
+		    	<param name="location">/preindex.jsp</param>
+		   </result>-->
+		   <result name="exception" type="dispatcher">
+		   	 	<param name="location">/msgclient.jsp</param>
+		   </result>
+	  </global-results>
+    </package>
+</xwork>

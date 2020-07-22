@@ -1,0 +1,66 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+
+<xwork>
+	<package name="acl_sys" extends="webwork-default" systemId="1001" caption="应用系统管理">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="addSys" class="com.hnjz.apps.base.sys.action.AddSys" caption="添加系统" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="dirSys" class="com.hnjz.apps.base.sys.action.DirSys" caption="查询系统" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/sys/dirsys.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="delSys" class="com.hnjz.apps.base.sys.action.DelSys" caption="删除系统" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="getSys" class="com.hnjz.apps.base.sys.action.GetSys" caption="获取系统" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/sys/getsys.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="updSys" class="com.hnjz.apps.base.sys.action.UpdSys" caption="修改系统" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="updSysStatus"
+			class="com.hnjz.apps.base.sys.action.UpdSysStatus" caption="修改系统状态" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+	</package>
+</xwork>

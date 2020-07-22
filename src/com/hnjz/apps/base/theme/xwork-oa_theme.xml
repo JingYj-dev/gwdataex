@@ -1,0 +1,81 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+
+<xwork>
+	<package name="acl_theme" extends="webwork-default" systemId="1001" caption="主题管理" >
+		<default-interceptor-ref name="defaultStack" />
+		<action name="dirTheme" class="com.hnjz.apps.base.theme.action.DirTheme" caption="查看主题">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/theme/dirTheme.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="getTheme" class="com.hnjz.apps.base.theme.action.GetTheme" caption="获取主题">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/theme/getTheme.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="addTheme" class="com.hnjz.apps.base.theme.action.AddTheme" caption="添加主题">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="updTheme" class="com.hnjz.apps.base.theme.action.UpdTheme" caption="修改主题">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>	
+		<action name="delTheme" class="com.hnjz.apps.base.theme.action.DelTheme" caption="删除主题">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>	
+		<action name="updThemeOpenStatus" class="com.hnjz.apps.base.theme.action.UpdThemeOpenStatus" caption="修改主题开启状态">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="getThemeChange" class="com.hnjz.apps.base.theme.action.GetThemeChange" caption="获取主题变换">
+			<result name="minipage" type="dispatcher">
+			<param name="location">/acl/theme/getThemeChangeMini.jsp</param>
+			</result>
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/theme/getThemeChange.jsp</param>
+			</result>			
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="changeTheme" class="com.hnjz.apps.base.theme.action.ChangeTheme" caption="主题变换">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>			
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>		
+	</package>
+</xwork>

@@ -1,0 +1,37 @@
+<div>
+  <form class="form-horizontal form-validate" method="post" action="data/success.json" onsubmit="return validateCallback(this, dialogAjaxDone);">
+    <div class="control-group">
+      <label class="control-label">名称</label>
+      <div class="controls">
+        <input type="text" placeholder="请输入名称" name="name" class="input-xlarge required">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">时间</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge required Wdate" name="time" readonly="true" onclick="WdatePicker()">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">状态</label>
+      <div class="controls">
+        <label class="radio">
+          <input type="radio" value="Option one" name="group" checked="checked">选项一</label>
+        <label class="radio">
+          <input type="radio" value="Option two" name="group">选项二</label>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">描述</label>
+      <div class="controls">
+        <div class="textarea">
+          <textarea rows="10" class="input-xlarge"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="set-btn">
+      <button class="btn save" type="submit">保存</button>
+      <a class="btn" href="javascript:;" onclick="$.dialog.focus.close()">取消</a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="webwork">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/res/webwork" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/res/webwork" recursive="false" />
+  </library>
+</component>

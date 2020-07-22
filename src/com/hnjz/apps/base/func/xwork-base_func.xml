@@ -1,0 +1,144 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+<xwork>
+	<package name="acl_func" extends="webwork-default" systemId="1001" caption="功能管理">
+		<default-interceptor-ref name="defaultStack" />
+	    <action name="dirFunc" class="com.hnjz.apps.base.func.action.DirFunc" caption="查询功能">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/func/dirfunc.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getFuncTree"
+			class="com.hnjz.apps.base.func.action.GetFuncTree" caption="获取功能树">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="dragFuncTree" class="com.hnjz.apps.base.func.action.DragFuncTree" caption="拖拽功能树">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="dirFuncMini" class="com.hnjz.apps.base.func.action.DirFunc" caption="获取功能信息">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/func/dirfuncmini.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doAjaxError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getFunc" class="com.hnjz.apps.base.func.action.GetFunc" caption="获取功能">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/func/getfunc.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="addFunc" class="com.hnjz.apps.base.func.action.AddFunc" caption="添加功能">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="updFunc" class="com.hnjz.apps.base.func.action.UpdFunc" caption="修改功能">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="delFunc" class="com.hnjz.apps.base.func.action.DelFunc" caption="删除功能">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="delFuncConFirm" class="com.hnjz.apps.base.func.action.DelFuncConFirm" caption="确认删除">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="dirFuncPoint" class="com.hnjz.apps.base.func.action.DirFuncPoint" caption="功能项管理">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/func/dirfuncpoint.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doAjaxError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="addFuncPoint" class="com.hnjz.apps.base.func.action.AddFuncPoint" caption="添加功能项">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="delFuncPoint" class="com.hnjz.apps.base.func.action.DelFuncPoint" caption="删除功能项">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getFuncPoint" class="com.hnjz.apps.base.func.action.GetFuncPoint" caption="获取功能项" event-type="4">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/func/getfuncpoint.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doAjaxError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="dirFuncPointMini" class="com.hnjz.apps.base.func.action.DirFuncPointMini" caption="查询功能项" event-type="4">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/func/dirfuncpointmini.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="UpdateFuncStatus" class="com.hnjz.apps.base.func.action.UpdateFuncStatus" caption="修改功能状态">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+	</package>
+</xwork>

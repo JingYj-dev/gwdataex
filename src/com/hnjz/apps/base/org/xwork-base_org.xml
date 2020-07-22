@@ -1,0 +1,174 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+
+<xwork>
+	<package name="acl_org" extends="webwork-default" systemId="1001" caption="组织机构管理">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="dirOrg" class="com.hnjz.apps.base.org.action.DirOrg" caption="查询组织机构" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/org/dirorg.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getOrgTree" class="com.hnjz.apps.base.org.action.GetOrgTree" caption="获取机构树" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+				<action name="dragOrgTree" class="com.hnjz.apps.base.org.action.DragOrgTree" caption="拖拽机构树" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getOrg" class="com.hnjz.apps.base.org.action.GetOrg"  caption="获取机构列表" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/org/getorg.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doAdminError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="dirOrgMin" class="com.hnjz.apps.base.org.action.DirOrg" caption="获取机构" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/org/dirorgmin.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doAdminError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="addOrg" class="com.hnjz.apps.base.org.action.AddOrg" caption="添加机构" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="updOrg" class="com.hnjz.apps.base.org.action.UpdOrg" caption="修改机构" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="delOrg" class="com.hnjz.apps.base.org.action.DelOrg" caption="删除机构" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="updOrgStatus"
+			class="com.hnjz.apps.base.org.action.UpdOrgStatus" caption="修改机构状态" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getOrgPostTree" class="com.hnjz.apps.base.org.action.GetOrgPostTree" caption="获取机构岗位" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/org/getorgposttree.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="getOrgPost" class="com.hnjz.apps.base.org.action.DirOrgPostMini" caption="获取机构岗位" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/org/getorgpost.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doAjaxError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="dirOrgPostMini" class="com.hnjz.apps.base.org.action.DirOrgPostMini" caption="查询岗位" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/org/dirorgpostmini.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getOrgUserTree" class="com.hnjz.apps.base.org.action.GetOrgUserTree" caption="获取机构用户" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/org/getorgusertree.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="addOrgPost" class="com.hnjz.apps.base.org.action.AddOrgPost" caption="添加机构岗位" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+			<action name="delOrgPost" class="com.hnjz.apps.base.org.action.DelOrgPost" caption="删除机构" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		 <action name="dirOrgUser" class="com.hnjz.apps.base.org.action.DirOrgUser" caption="管理机构用户" event-type="5">
+           <result name="success" type="dispatcher">
+               <param name="location">/acl/org/dirorguser.jsp</param>
+           </result>
+           <result name="error" type="redirect">
+               <param name="location">doError.action</param>
+           </result>
+        </action>
+ 		 <action name="dirOrgPost" class="com.hnjz.apps.base.org.action.DirOrgPost" caption="查询机构岗位" event-type="5">
+           <result name="success" type="dispatcher">
+               <param name="location">/acl/org/dirorgpost.jsp</param>
+           </result>
+           <result name="error" type="redirect">
+               <param name="location">doError.action</param>
+           </result>
+        </action>
+        <action name="addOrgUser" class="com.hnjz.apps.base.org.action.AddOrgUser" caption="添加机构用户" event-type="5">
+           <result name="success" type="dispatcher">
+               <param name="location">/resultjson.jsp</param>
+           </result>
+           <result name="error" type="dispatcher">
+               <param name="location">/resultjson.jsp</param>
+           </result>
+        </action> 
+        <action name="getOrgRadioTree" class="com.hnjz.apps.base.org.action.GetOrgRadioTree" caption="获取机构树" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>    
+	</package>
+</xwork>

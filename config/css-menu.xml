@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<css-menu>
+	<menu id="F_002" name="字典管理" icon="icon-book" path="dirDict.action" visible="true" level="1"/>
+	<menu id="F_006" name="组织机构管理" icon="icon-star-empty" path="dirOrg.action" visible="true" level="1"/>
+	<menu id="F_007" name="岗位管理" icon="icon-road" path="dirPost.action" visible="true" level="1"/>
+	<menu id="F_008" name="用户管理" icon="icon-user" path="dirUser.action" visible="true" level="1"/>
+	<menu id="F_009" name="用户授权" icon="icon-user" path="dirUserAdmin.action" visible="true" level="1"/>
+	<menu id="F_003" name="角色管理" icon="icon-bookmark" path="dirRole.action" visible="true" level="1"/>
+	<menu id="F_004" name="功能管理" icon="icon-cog" path="dirFunc.action?flag=true" visible="true" level="1"/>			
+	<menu id="F_017" name="菜单管理"  icon="icon-user" path="dirMenu.action" visible="true" level="1"/>
+	<menu id="F_020" name="安全参数设置" icon="icon-user" path="dirSecParam.action" visible="true" level="1"/>
+	<menu id="F_021" name="审计参数设置" icon="icon-user" path="dirAuditParam.action" visible="true" level="1"/>
+</css-menu>

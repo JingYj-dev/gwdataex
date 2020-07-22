@@ -1,0 +1,267 @@
+/**** reset css ******
+**********************/
+html{
+	color: #000000;
+	background:#ffffff;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+	margin:0;
+	padding:0
+}
+table{
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img {
+	border:0
+}
+address,caption,cite,code,dfn,em,strong,th,var{
+	font-style:normal;
+	font-weight:normal;
+}
+ol,ul{
+	list-style:none;
+}
+caption,th{
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6{
+	font-size:100%;
+	font-weight:normal;
+}
+q:before,q:after{
+	content:'';
+}
+abbr,acronym{
+	border:0;
+	font-variant:normal;
+}
+sup{
+	vertical-align:text-top;
+}
+sub{
+	vertical-align:text-bottom;
+}
+input,textarea,select{
+	font-family:inherit;
+	font-size:inherit;
+	font-weight:inherit;
+	*font-size:100%;
+}
+legend{
+	color:#000000;
+}
+.loginBody{
+	height:100%;
+	overflow:hidden;
+}
+/* float & clear */
+.fr{
+	float: right;
+	_display: inline;
+}
+.fl{
+	float: left;
+	_display: inline;
+}
+.clearfix{
+	*zoom:1;
+}
+.clearfix:after, .clearfix:before{
+	display: block;
+	height: 0;
+	content: "";
+	visibility: hidden;
+}
+.clearfix:after{
+	clear: both;
+}
+/* Custom css */
+body{
+	font-family: "Microsoft Yahei";
+	font-size: 14px;
+	background-color: #d1e8fa;
+}
+.main{
+	margin: 0 auto;
+}
+.mod_l, .mod_r{
+	float: left;
+}
+.mod_l{
+	background-image: url("l_bg.jpg");
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.mod_l .user_icon{
+	display: block;
+	background-image: url("user_icon.png");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	width: 135px;
+	height: 135px;
+	margin: 0 auto;
+	margin-top: 170px;
+}
+.mod_r{
+	background-image: url("r_bg.jpg");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	width: 1020px;
+}
+.mod_r form{
+	padding-left: 120px;
+	position: relative;
+}
+.mod_r .title{
+	margin-top: 55px;
+	margin-bottom: 25px;
+	font-size: 34px;
+	color: #ffffff;
+}
+.mod_r form .wel_txt{
+	font-size: 18px;
+	margin-bottom: 15px;
+	color: #ffffff;
+}
+.mod_r  p input, .mod_r p span,.mod_r  p i{
+	display: inline-block;
+}
+.mod_r p, .mod_r p span, .mod_r p i{
+	background-image: url("new_icon.png");
+	background-repeat: no-repeat;
+}
+.mod_r p{
+	height: 42px;
+	margin-bottom: 25px;
+	width: 350px;
+	background-position: -130px 0px;
+}
+.mod_r p input{
+	height: 32px;
+	line-height: 32px;
+	font-size: 14px;
+	border:0;
+	outline: none;
+	text-indent: 10px;
+	width: 188px;
+	color: #999999;
+	vertical-align: 15px;
+	margin: 0 5px;
+}
+.mod_r .password input{
+	vertical-align: 14px;
+}
+.mod_r p.auth input{
+	border-right: 1px solid #cfd0d2;
+}
+.mod_r p.rmb{
+	background: none;
+	height: auto;
+}
+.mod_r p span.type{
+	width: 42px;
+	height: 42px;
+	background-color: #c8c8c8;
+}
+.mod_r p.account span.type{
+	background-position: 12px 12px;
+}
+.mod_r p.password span.type{
+	background-position: 12px -26px;
+}
+.mod_r p.auth span.type{
+	background-position: 12px -64px;
+}
+.mod_r p i{
+	width: 16px;
+	height: 16px;
+	position: relative;
+	top: -12px;
+}
+.mod_r p i.valid{
+	background-position: -72px 0px;
+}
+.mod_r p i.invalid{
+	background-position: -72px -39px;
+}
+.mod_r p i.refresh{
+	background-position: -72px -78px;
+}
+.mod_r p.auth input{
+	width: 120px;
+}
+.mod_r p.auth span.code{
+	display: inline-block;
+	margin-left: 2px;
+	margin-right: 5px;
+	vertical-align: 11px;
+}
+.mod_r p.rmb span{
+	margin-left: 20px;
+	height: 24px;
+	line-height: 24px;
+	background: none;
+	overflow: hidden;
+	cursor: pointer;
+	color: #dcddde;
+}
+.mod_r p.rmb span i{
+	margin-top: 6px;
+	margin-right: 7px;
+	width: 14px;
+	height: 14px;
+	background-position: -518px -29px;
+}
+.mod_r p.rmb span input{
+	margin-top: 6px;
+	width: 14px;
+	height: 14px;
+}
+.mod_r .btn{
+	float: left;
+}
+.mod_r a{
+	cursor: pointer;
+	display: inline-block;
+	width: 75px;
+	height: 32px;
+	line-height: 30px;
+	text-align: center;
+	color: #ffffff;
+	font-size: 14px;
+	outline: none;
+	border:none;
+	margin-right: 15px;
+}
+.mod_r a.submit{
+	background-color: #41baf2;
+}
+.mod_r a.reset{
+	background-color: #81b2d2;
+}
+.mod_r a.submit:hover, .mod_r a.reset:hover{
+	background-color: #eeb620;
+}
+.mod_r .footer{
+	position: absolute;
+	bottom: 35px;
+	left: 80px;
+	font-size: 12px;
+	color: #8093a0;
+	text-align: center;
+}
+.mod_r .msg {
+	font-size: 14px;
+	color: #FFE500;
+	text-align: left;
+	position: relative;
+	top: -55px;
+	left: 280px;
+	height: 0;
+}
+.mod_r label.error {
+	display: inline;
+	margin: 0px;
+	padding:0px;
+}

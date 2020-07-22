@@ -1,0 +1,41 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+
+<xwork>
+	<package name="oa_acceptdoc" extends="webwork-default" systemId="1001" caption="签收公文管理">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="dirAcceptDoc" class="com.hnjz.apps.oa.accept.action.DirAcceptDoc" caption="管理签收公文">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsysext/accept/dirTransContent.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="getAcceptDoc" class="com.hnjz.apps.oa.accept.action.GetAcceptDoc" caption="获取签收公文">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsysext/accept/getTransContent.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="acceptDoc" class="com.hnjz.apps.oa.accept.action.AcceptDoc" caption="签收公文">
+			<result name="success" type="json" />
+			<result name="error" type="json" />
+		</action>
+		<action name="downloadDocOfd" class="com.hnjz.apps.oa.accept.action.DownloadDocOfd" caption="下载ofd">
+			<result name="success" type="stream">      
+               <param name="contentType">application/octet-stream;charset=UTF-8</param>  
+                <param name="inputName">inputStream</param>     
+                <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>      
+                <param name="bufferSize">4096</param>
+            </result>
+           <result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+        
+	</package>
+</xwork>

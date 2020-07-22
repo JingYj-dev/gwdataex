@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="ie7 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<link rel="shortcut icon" href="favicon.ico" />
+ 		<!-- Site CSS -->
+  		<link href="../cssui/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  		<link href="../cssui/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+  		<link href="../cssui/layout/default.css" rel="stylesheet"/>
+  		<link href="../cssui/layout/document.css" rel="stylesheet"/>
+  		<link href="../cssui/themes/chinastyle/icons.css" rel="stylesheet"/>
+  		<link href="../cssui/themes/chinastyle/style.css" rel="stylesheet"/>
+  		<script type="text/javascript" src="../lib/ajax-pushlet-client.js"></script>
+  	</head>
+	<body class="page-header-fixed">
+    	<div class="header navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="brand" href="index.html"><img src="../custom/brand.png" />电子公文处理系统</a>
+					<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+					<img src="../cssui/images/menu-toggler.png" alt="">
+					</a>             
+					<ul class="nav pull-right">
+						<li class="dropdown user">您好！产品研发部，王大曲</li>
+						<li class="dropdown"><a href="javascript:;">主题</a>
+						</li>
+						<li class="dropdown"><a href="javascript:;">设置</a>
+						</li>
+						<li class="dropdown"><a href="javascript:;">退出</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--
+			<div class="user-info">
+				<div class="sidebar-toggler hidden-phone"></div>
+				<a href="javascript:;" class="login-info">您好!<span class="dp">开发部</span>,&nbsp;<span class="name">王志明</span></a>
+			</div>
+			-->
+		</div>
+    	<div class="page-container">
+				<div class="page-sidebar" role="main">
+					<div class="folder"><a></a></div>
+					<ul class="page-sidebar-menu">
+						<!--
+						<li>
+							<div class="sidebar-toggler hidden-phone"></div>
+						</li>
+						-->	
+						<li class="start active ">
+							<a href="index.html" title="首页">
+							<i class="icon_home"></i> 
+							<span class="title">首页</span>
+							<span class="selected"></span>
+							</a>
+						</li>
+						<li class="start active ">
+							<a href="form1.html" title="form1" target="cssTab">
+							<i class="icon_user"></i> 
+							<span class="title">我的工作</span>
+							<span class="arrow "></span>
+							</a>
+						</li>
+						<li class="start active ">
+							<a href="form2.html" title="form2" target="cssTab">
+							<i class="icon_doc"></i> 
+							<span class="title">发文管理</span>
+							<span class="arrow "></span>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+							<i class="icon_book"></i> 
+							<span class="title">收文管理</span>
+							<span class="arrow "></span>
+							</a>
+							<ul class="sub-menu">
+								<!--
+								<li >
+									<a href="ui_general.html">
+									普通</a>
+								</li>
+								-->
+								<li >
+									<a href="ui_buttons.html" target="cssTab">
+									按钮</a>
+								</li>
+								<!--
+								<li >
+									<a href="ui_modals.html">
+									Enhanced Modals</a>
+								</li>
+								<li >
+									<a href="ui_tabs_accordions.html">
+									Tabs & Accordions</a>
+								</li>
+								<li >
+									<a href="ui_sliders.html">
+									Sliders</a>
+								</li>
+								<li >
+									<a href="ui_tiles.html">
+									Tiles</a>
+								</li>
+								<li >
+									<a href="ui_typography.html">
+									Typography</a>
+								</li>
+								-->
+								<li >
+									<a href="ui_tree.html" target="cssTab">
+									树</a>
+								</li>
+								<!--
+								<li >
+									<a href="ui_nestable.html">
+									Nestable List</a>
+								</li>
+								-->
+							</ul>
+						</li>
+						<li class="">
+							<a href="javascript:;" title="布局">
+							<i class="icon_tag"></i> 
+							<span class="title">归档管理</span>
+							<span class="arrow"></span>
+							</a>
+							<ul class="sub-menu">
+								<li><a href="layout_boxed_page.html"><i class="icon_crystal_dot"></i>940页面</a>
+								</li>
+								<li><a href="layout_wz.html" target="cssTab"><i class="icon_crystal_dot"></i>文种</a>
+								</li>
+								<li><a href="layout_editpass.html"><i class="icon_crystal_dot"></i>修改密码</a>
+								</li>
+								<li><a href="layout_welcome3.html" target="cssTab"><i class="icon_crystal_dot"></i>欢迎页</a>
+								</li>
+								<li><a href="layout_sch.html" target="cssTab"><i class="icon_crystal_dot"></i>查询</a>
+								</li>
+							</ul>
+						</li>
+						<li class="">
+							<a href="javascript:;">
+							<i class="icon_tips"></i> 
+							<span class="title">催办管理</span>
+							<span class="arrow "></span>
+							</a>
+							<ul class="sub-menu">
+								<li>
+									<a href="form_component.html" target="cssTab">表单布局</a>
+								</li>
+								<li>
+									<a href="form_validation.html" target="cssTab">表单验证</a>
+								</li>
+								<li>
+									<a href="form_fwcld.html"  target="cssTab">发文处理单</a>
+								</li>
+								<li>
+									<a href="form_window.html" target="cssTab">弹出窗口</a>
+								</li>
+								<li>
+									<a href="form_cbtz.html" target="cssTab">弹框类表单</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="javascript:;" title="表格">
+							<i class="icon_setting"></i> 
+							<span class="title">系统管理</span>
+							<span class="selected"></span>
+							<span class="arrow"></span>
+							</a>
+							<ul class="sub-menu">
+								<li class="active">
+									<a href="table_basic.html" target="cssTab" rel="table_basic">基础表格</a>
+								</li>
+								<li>
+									<a href="table_tree.html" target="cssTab">树表格</a>
+								</li>
+								<!--
+								<li>
+									<a href="table_responsive.html">
+									Responsive Tables</a>
+								</li>
+								<li>
+									<a href="table_managed.html">
+									Managed Tables</a>
+								</li>
+								<li>
+									<a href="table_editable.html">
+									Editable Tables</a>
+								</li>
+								<li>
+									<a href="table_advanced.html">
+									Advanced Tables</a>
+								</li>
+								-->
+							</ul>
+						</li>
+						<li>
+							<a class="active" href="javascript:;">
+							<i class="icon_random"></i> 
+							<span class="title">数据交换</span>
+							<span class="arrow "></span>
+							</a>
+							<ul class="sub-menu">
+								<li>
+									<a href="javascript:;">
+									Item 1
+									<span class="arrow"></span>
+									</a>
+									<ul class="sub-menu">
+										<li><a href="#">Sample Link 1</a></li>
+										<li><a href="#">Sample Link 2</a></li>
+										<li><a href="#">Sample Link 3</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="javascript:;">
+									Item 1
+									<span class="arrow"></span>
+									</a>
+									<ul class="sub-menu">
+										<li><a href="#">Sample Link 1</a></li>
+										<li><a href="#">Sample Link 1</a></li>
+										<li><a href="#">Sample Link 1</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+									Item 3
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="javascript:;">
+							<i class="icon_star"></i> 
+							<span class="title">四级菜单</span>
+							<span class="arrow "></span>
+							</a>
+							<ul class="sub-menu">
+								<li>
+									<a href="javascript:;">
+									<i class="icon-cogs"></i> 
+									Item 1
+									<span class="arrow"></span>
+									</a>
+									<ul class="sub-menu">
+										<li>
+											<a href="javascript:;">
+											<i class="icon-user"></i>
+											Sample Link 1
+											<span class="arrow"></span>
+											</a>
+											<ul class="sub-menu">
+												<li><a href="#"><i class="icon-remove"></i> Sample Link 1</a></li>
+												<li><a href="#"><i class="icon-pencil"></i> Sample Link 1</a></li>
+												<li><a href="#"><i class="icon-edit"></i> Sample Link 1</a></li>
+											</ul>
+										</li>
+										<li><a href="#"><i class="icon-user"></i>  Sample Link 1</a></li>
+										<li><a href="#"><i class="icon-external-link"></i>  Sample Link 2</a></li>
+										<li><a href="#"><i class="icon-bell"></i>  Sample Link 3</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="javascript:;">
+									<i class="icon-globe"></i> 
+									Item 2
+									<span class="arrow"></span>
+									</a>
+									<ul class="sub-menu">
+										<li><a href="#"><i class="icon-user"></i>  Sample Link 1</a></li>
+										<li><a href="#"><i class="icon-external-link"></i>  Sample Link 1</a></li>
+										<li><a href="#"><i class="icon-bell"></i>  Sample Link 1</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+									<i class="icon-folder-open"></i>
+									Item 3
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li class="last ">
+							<a href="icon2.html" target="cssTab">
+							<i class="icon_star"></i> 
+							<span class="title">图标</span>
+							</a>
+						</li>
+						<!--
+						<li class="last ">
+							<a href="charts.html">
+							<i class="icon-bar-chart"></i> 
+							<span class="title">图表</span>
+							</a>
+						</li>
+						-->
+					</ul>
+      			</div>
+				<div class="page-content">
+					<div id="tab-01">
+						<ul class="dropdown-menu" id="menu1">
+							<li>
+								<a href="javascript:;" rel="reload">刷新标签页</a>
+							</li>
+							<li>
+								<a href="javascript:;" rel="close">关闭标签页</a>
+							</li>
+							<li>
+								<a href="javascript:;" rel="closeOther">关闭其他标签页</a>
+							</li>
+							<li>
+								<a href="javascript:;" rel="closeAll">关闭全部标签页</a>
+							</li>
+						</ul>
+						<ul class="nav nav-tabs" context-menu="menu1" style="margin-right: 48px;">
+							<li class="active ">
+								<a tabid="home" href="#home">首页</a>
+							</li>
+						</ul>
+						<div class="tab-btn">
+							<!-- <a href="javascript:;" class="left"></a>
+							<a href="javascript:;" class="right"></a>-->
+							<a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle more"><i></i></a>
+							<ul class="dropdown-menu">
+							</ul> 
+						</div>
+						<div class="tab-content layoutBox">
+							<div class="tab-pane active" id="home">
+								<div class="row-fluid column-seperation text-center"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+    		</div>
+    	<!--
+    	<footer class="footer text-center">
+    		<div class="footer-inner">
+				2013 © MMMMMM by LLLLL.
+			</div>
+    	</footer>	
+    	-->
+    <script type="text/javascript" src="../cssui/js/easyloader.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.history.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.blockui.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/lhgdialog/lhgdialog.min.js?skin=add"></script>
+    <script type="text/javascript" src="../cssui/plugins/ajaxupload/ajaxupload.3.6.min.js"></script>
+    <script type="text/javascript" src="../cssui/js/cssui.js"></script>
+    <script type="text/javascript" src="../cssui/js/app.js"></script>
+    <script type="text/javascript">
+    	// using('dialog',function(){
+    	// 	var dg = new $.dialog({   
+		   //       id: 'test1',   
+		   //       title: '弹出窗口',   
+		   //       html: '弹出窗口内容' 
+		   //  });
+    	// })
+    g_user={id:'<ww:property value="#session.sUser.userId" />',name:'<ww:property value="#session.sUser.realName" />'};
+    </script>
+  </body>
+</html>

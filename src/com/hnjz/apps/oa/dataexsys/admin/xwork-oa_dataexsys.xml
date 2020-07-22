@@ -1,0 +1,267 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+
+<xwork>
+	<package name="oa_dataexsys" extends="webwork-default" systemId="1001" caption="交换系统管理">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="getDataexSysDir" class="com.hnjz.apps.oa.dataexsys.admin.action.GetDataexSysDir" caption="获取交换目录信息">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/getDataexSysDir.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="addDataexSysDir" class="com.hnjz.apps.oa.dataexsys.admin.action.AddDataexSysDir" caption="添加交换目录">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="updDataexSysDir" class="com.hnjz.apps.oa.dataexsys.admin.action.UpdDataexSysDir" caption="修改交换目录">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="dirDataexSysDir" class="com.hnjz.apps.oa.dataexsys.admin.action.DirDataexSysDir" caption="查询交换目录">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/dirDataexSysDir.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="dirDataexSysDirMini" class="com.hnjz.apps.oa.dataexsys.admin.action.DirDataexSysDir" caption="获取交换目录">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/dirDataexSysDirMini.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		
+		<action name="getDataexSysDirTree" class="com.hnjz.apps.oa.dataexsys.admin.action.GetDataexSysDirTree" caption="获取左侧交换目录树">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		
+		<action name="getDataexSysDirRadioTree" class="com.hnjz.apps.oa.dataexsys.admin.action.GetDataexSysDirRadioTree" caption="获取新增页面交换目录树">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="updDirStatus" class="com.hnjz.apps.oa.dataexsys.admin.action.UpdDirStatus" caption="更改目录状态">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="delDataexSysDir" class="com.hnjz.apps.oa.dataexsys.admin.action.DelDataexSysDir" caption="目录删除">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="dirDataexSysTrans" class="com.hnjz.apps.oa.dataexsys.admin.action.DirDataexSysTrans" caption="交换流水查询">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/dirDataexSysTrans.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		
+		<action name="impOfficialDocPackSys" class="com.hnjz.apps.oa.dataexsys.admin.action.ImpOfficialDocPackSys" caption="导入公文包">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/impofficialdocpacksys.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="addOfficialDocPackSys" class="com.hnjz.apps.oa.dataexsys.admin.action.AddOfficialDocPackSys" caption="添加公文包">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="uploadOfficialDocSys" class="com.hnjz.apps.oa.dataexsys.admin.action.UploadOfficialDocSys" caption="上传文件">
+            <result name="success" type="xml" />
+			<result name="error" type="xml" />
+            <interceptor-ref name="defaultStack" /> 
+        	<interceptor-ref name="fileUploadStack" />  
+		</action>
+		<action name="uploadDirCert" class="com.hnjz.apps.oa.dataexsys.admin.action.UploadDirCert" caption="上传证书">
+            <result name="success" type="xml" />
+			<result name="error" type="xml" />
+            <interceptor-ref name="defaultStack" /> 
+        	<interceptor-ref name="fileUploadStack" />  
+		</action>
+		<action name="downloadDirCert" class="com.hnjz.apps.oa.dataexsys.admin.action.DownloadDirCert" caption="下载证书">
+			<result name="success" type="stream">      
+               <param name="contentType">application/octet-stream;charset=UTF-8</param>  
+                <param name="inputName">inputStream</param>     
+                <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>      
+                <param name="bufferSize">4096</param>
+            </result>
+           <result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="delDirCert" class="com.hnjz.apps.oa.dataexsys.admin.action.DelDirCert" caption="删除上传证书">
+			<result name="success" type="json" />
+			<result name="error" type="json" />
+		</action>
+		<action name="delOfficialDocSys" class="com.hnjz.apps.oa.dataexsys.admin.action.DelOfficialDocSys" caption="删除上传的公文包">
+			<result name="success" type="json" />
+			<result name="error" type="json" />
+		</action>
+		<action name="exportOfficialDocPackSys" class="com.hnjz.apps.oa.dataexsys.admin.action.ExportOfficialDocPackSys" caption="公文包导出">
+			<result name="success" type="stream">      
+                <param name="contentType">application/octet-stream</param>  
+                <param name="inputName">inputStream</param>     
+                <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>      
+                <param name="bufferSize">4096</param>
+            </result>
+           <result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="getTransContent" class="com.hnjz.apps.oa.dataexsys.admin.action.GetTransContent" caption="查看内容">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/getTransContent.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="dirDataexSysTransAccount" class="com.hnjz.apps.oa.dataexsys.admin.action.DirDataexSysTransAccount" caption="日志列表查询">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/dirDataexSysTransAccount.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="dirDataexSysTransLog" class="com.hnjz.apps.oa.dataexsys.admin.action.DirDataexSysTransLog" caption="查看日志列表">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/dirDataexSysTransLog.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="dirDataexSysTransParam" class="com.hnjz.apps.oa.dataexsys.admin.action.DirDataexSysTransParam" caption="列出参数列表">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/dirDataexSysTransParam.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="addDataexSysTransParam" class="com.hnjz.apps.oa.dataexsys.admin.action.AddDataexSysTransParam" caption="添加参数">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="delDataexSysTransParam" class="com.hnjz.apps.oa.dataexsys.admin.action.DelDataexSysTransParam" caption="删除参数">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getDataexSysTransParam" class="com.hnjz.apps.oa.dataexsys.admin.action.GetDataexSysTransParam" caption="获取参数">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/getDataexSysTransParam.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="updDataexSysTransParam" class="com.hnjz.apps.oa.dataexsys.admin.action.UpdDataexSysTransParam" caption="修改参数">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		
+		<action name="dirDataexSysTransQueue" class="com.hnjz.apps.oa.dataexsys.admin.action.DirDataexSysTransQueue" caption="发送任务监控(发送队列)">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/dirDataexSysTransQueue.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="delDataexSysTransQueue" class="com.hnjz.apps.oa.dataexsys.admin.action.DelDataexSysTransQueue" caption="删除发送任务">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="startDataexSysTransQueue" class="com.hnjz.apps.oa.dataexsys.admin.action.StartDataexSysTransQueue" caption="启动发送任务">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="dirDataexSysExStat" class="com.hnjz.apps.oa.dataexsys.admin.action.DirDataexSysExStat" caption="显示交换统计结果">
+			<result name="success" type="dispatcher">
+				<param name="location">/dataexsys/dirDataexSysExStat.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+	</package>
+</xwork>
+

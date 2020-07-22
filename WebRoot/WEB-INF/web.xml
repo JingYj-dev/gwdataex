@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:javaee="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         id="CssBase" version="2.4">
+
+    <!-- spring ApplicationContext -->
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>/WEB-INF/classes/log4j.properties</param-value>
+    </context-param>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:/applicationContext.xml</param-value>
+<!--        <param-value>classpath*:/applicationContext.xml,/WEB-INF/classes/act-*.xml</param-value>-->
+    </context-param>
+
+    <!-- 前端控制器配置 默认加载  springapp-servlet.xml  -->
+    <!--
+        <servlet>
+            <servlet-name>springapp</servlet-name>
+            <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+            <load-on-startup>2</load-on-startup>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>springapp</servlet-name>
+            <url-pattern>/</url-pattern>
+        </servlet-mapping>
+    -->
+
+
+    <!-- spring -->
+    <!--
+        <filter>
+            <filter-name>springSecurityFilterChain</filter-name>
+            <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        </filter>
+        <filter-mapping>
+            <filter-name>springSecurityFilterChain</filter-name>
+            <url-pattern>/*</url-pattern>
+        </filter-mapping>
+    -->
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+<!--    <listener>-->
+<!--        <listener-class>com.opensymphony.xwork.spring.SpringObjectFactory</listener-class>-->
+<!--    </listener>-->
+
+
+    <filter>
+        <filter-name>webwork</filter-name>
+        <filter-class>
+            com.opensymphony.webwork.dispatcher.FilterDispatcher
+        </filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>webwork</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- dao层必须继承 HibernateDaoSupport -->
+    <!--
+        <filter>
+            <filter-name>OpenSessionInViewFilter</filter-name>
+            <filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+            <init-param>
+                <param-name>flushMode</param-name>
+                <param-value>AUTO</param-value>
+            </init-param>
+        </filter>
+        <filter-mapping>
+            <filter-name>OpenSessionInViewFilter</filter-name>
+            <url-pattern>/*</url-pattern>
+        </filter-mapping>
+    -->
+    <!-- ********************************** -->
+
+
+    <!-- ********************************** -->
+    <!-- ********************************** -->
+    <!-- 以下为交换原有配置 -->
+    <!-- ********************************** -->
+    <!--PluginBusListener 有的-->
+    <listener>
+        <listener-class>com.hnjz.webbase.listener.PluginBusListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.hnjz.apps.oa.dataexsys.listener.DataexSysListenerProducer</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.hnjz.apps.oa.dataexsys.listener.DataexSysListenerConsumer</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>ClientInfoFilter</filter-name>
+        <filter-class>com.hnjz.apps.oa.dataexsys.filter.DataexSysFilter</filter-class>
+    </filter>
+<!--    <filter>-->
+<!--        <filter-name>springSecurityFilterChain</filter-name>-->
+<!--        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>springSecurityFilterChain</filter-name>-->
+<!--        <url-pattern>/*</url-pattern>-->
+<!--    </filter-mapping>-->
+
+    <filter-mapping>
+        <filter-name>ClientInfoFilter</filter-name>
+        <url-pattern>/services/*</url-pattern>
+    </filter-mapping>
+
+
+    <servlet>
+        <servlet-name>webwork</servlet-name>
+        <servlet-class>
+            com.opensymphony.webwork.dispatcher.ServletDispatcher
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>webwork</servlet-name>
+        <url-pattern>*.action</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- Define the msgcenter BootstrapWorkerListener -->
+    <!--    <listener>-->
+    <!--        <listener-class>com.hnjz.apps.msgcenter.spi.service.MsgCenterBootstrapListener</listener-class>-->
+    <!--    </listener>-->
+
+    <!--    <listener>-->
+    <!--        <listener-class>com.opensymphony.webwork.lifecycle.ApplicationLifecycleListener</listener-class>-->
+    <!--    </listener>-->
+    <!--    <listener>-->
+    <!--        <listener-class>com.opensymphony.webwork.lifecycle.SessionLifecycleListener</listener-class>-->
+    <!--    </listener>-->
+
+
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
+    <!--   <jsp-config>
+           <taglib>
+               <taglib-uri>webwork</taglib-uri>
+               <taglib-location>/WEB-INF/webwork.tld</taglib-location>
+           </taglib>
+           <jsp-property-group>
+               <url-pattern>*.jsp</url-pattern>
+               <el-ignored>true</el-ignored>
+           </jsp-property-group>
+       </jsp-config>
+   -->
+    <!-- axis webservice begin -->
+    <servlet>
+        <servlet-name>AxisServlet</servlet-name>
+        <servlet-class>
+            org.apache.axis.transport.http.AxisServlet
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AxisServlet</servlet-name>
+        <url-pattern>/servlet/AxisServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AxisServlet</servlet-name>
+        <url-pattern>*.jws</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AxisServlet</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+
+    <!--
+        <servlet>
+            <servlet-name>AdminServlet</servlet-name>
+            <servlet-class>
+                org.apache.axis.transport.http.AdminServlet
+            </servlet-class>
+            <load-on-startup>100</load-on-startup>
+        </servlet>
+    -->
+
+    <servlet>
+        <servlet-name>SOAPMonitorService</servlet-name>
+        <servlet-class>
+            org.apache.axis.monitor.SOAPMonitorService
+        </servlet-class>
+        <init-param>
+            <param-name>SOAPMonitorPort</param-name>
+            <param-value>5001</param-value>
+        </init-param>
+        <load-on-startup>100</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SOAPMonitorService</servlet-name>
+        <url-pattern>/SOAPMonitor</url-pattern>
+    </servlet-mapping>
+    <!-- 卫士通部分 -->
+    <!--<servlet>
+        <servlet-name>resource</servlet-name>
+        <servlet-class>com.hnjz.apps.base.resource.ResourceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>resource</servlet-name>
+        <url-pattern>/resource/save</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>getChanllenge</servlet-name>
+        <servlet-class>com.hnjz.apps.base.user.action.login.ChallengeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getChanllenge</servlet-name>
+        <url-pattern>/user/getIdentityVerifyChallenge</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>viaIdentity</servlet-name>
+        <servlet-class>com.hnjz.apps.base.user.action.login.ViaIdentityServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>viaIdentity</servlet-name>
+        <url-pattern>/user/loginViaIdentityVerifyService</url-pattern>
+    </servlet-mapping>
+    &lt;!&ndash; 单点登录退出认证 &ndash;&gt;
+    <servlet>
+        <servlet-name>checkLoginOut</servlet-name>
+        <servlet-class>com.hnjz.apps.base.user.action.login.CheckLoginOut</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>checkLoginOut</servlet-name>
+        <url-pattern>/user/checkLoginOut</url-pattern>
+    </servlet-mapping>-->
+
+    <!--  <mime-mapping> 用来指定对应的格式的浏览器处理方式  -->
+    <!--   <mime-mapping>
+           <extension>wsdl</extension>
+           <mime-type>text/xml</mime-type>
+       </mime-mapping>
+
+       <mime-mapping>
+           <extension>xsd</extension>
+           <mime-type>text/xml</mime-type>
+       </mime-mapping>-->
+    <!-- axis webservice end -->
+
+    <!-- 方正交换返回总接口 -->
+    <!--   <servlet>
+           <servlet-name>ArchiveHandleServlet</servlet-name>
+           <servlet-class>com.hnjz.apps.oa.dataexsys.servlet.ArchiveHandleServlet</servlet-class>
+       </servlet>
+       <servlet-mapping>
+           <servlet-name>ArchiveHandleServlet</servlet-name>
+           <url-pattern>/ArchiveHandleServlet</url-pattern>
+       </servlet-mapping>
+   -->
+    <!-- 中软交换系统hession接口服务 -->
+    <!--   <servlet>
+           <servlet-name>Hessian</servlet-name>
+           <servlet-class>com.hnjz.apps.oa.dataexsys.util.DataexZRUtilImpl</servlet-class>
+       </servlet>
+
+       <servlet-mapping>
+           <servlet-name>Hessian</servlet-name>
+           <url-pattern>/DataexZRUtil</url-pattern>
+       </servlet-mapping>
+   -->
+
+    <!-- ********************************** -->
+    <!--首页 -->
+    <welcome-file-list>
+        <!-- <welcome-file>index.jsp</welcome-file>-->
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+    <!-- 发生错误时处理-->
+    <error-page>
+        <error-code>500</error-code>
+        <!--<location>/doError.action</location>-->
+        <location>/msgclient.jsp</location>
+    </error-page>
+    <!--    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/WEB-INF/403.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/403.jsp</location>
+    </error-page>-->
+
+
+</web-app>

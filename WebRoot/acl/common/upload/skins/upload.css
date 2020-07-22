@@ -1,0 +1,14 @@
+.imgSection{
+	width: 50px;
+	height:50px;
+	border: solid 1px #E0E0E0;
+	background-color: #FFF;
+	padding: 2px;
+	cursor:pointer;
+}
+a.fileDownload,a.fileDel,a.fileUpload{
+	line-height: 26px;
+	margin-bottom: 10px;
+	padding: 4px 6px;
+	vertical-align: middle;
+}

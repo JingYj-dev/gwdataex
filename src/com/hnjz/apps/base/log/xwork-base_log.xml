@@ -1,0 +1,209 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+
+<xwork>
+	 <package name="acl_log_ext" extends="webwork-default" systemId="1001" caption="日志管理">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="dirLogExt" class="com.hnjz.apps.base.log.action.DirLogExt" caption="日志列表查询"  event-type="2">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/log/dirlogExt.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="logExport" class="com.hnjz.apps.base.log.action.LogExport" caption="日志导出"  event-type="2">                 
+			 <result name="success" type="stream">                      
+				 <param name="contentType">${contentType}</param>                      
+				 <param name="inputName">inputStream</param>                      
+				 <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>                      
+				 <param name="bufferSize">4096</param>                  
+			 </result>     
+			 <result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			 </result>      
+			 <interceptor-ref name="defaultStack" />
+		</action>   
+	</package>
+	
+	<package name="acl_log" extends="webwork-default" systemId="1001" caption="日志审计">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="dirOpLog" class="com.hnjz.apps.base.log.action.DirOpLog" caption="操作日志"  event-type="2">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/log/diroplog.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="dirSecLog" class="com.hnjz.apps.base.log.action.DirSecLog" caption="安全日志"  event-type="2">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/log/dirseclog.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="dirAuditLog" class="com.hnjz.apps.base.log.action.DirAuditLog" caption="审计日志"  event-type="2">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/log/dirauditlog.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="logStat" class="com.hnjz.apps.base.log.action.LogStat" caption="日志统计"  event-type="2">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/log/logstat.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="logFx" class="com.hnjz.apps.base.log.action.LogFx" caption="日志分析"  event-type="2">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/log/logfx.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="opLogExport" class="com.hnjz.apps.base.log.action.OpLogExport" caption="操作日志导出"  event-type="2">                 
+			 <result name="success" type="stream">                      
+				 <param name="contentType">${contentType}</param>                      
+				 <param name="inputName">inputStream</param>                      
+				 <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>                      
+				 <param name="bufferSize">4096</param>                  
+			 </result>     
+			 <result name="error" type="dispatcher">
+				<param name="location">doAjaxError.action</param>
+			 </result>      
+			 <interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="secLogExport" class="com.hnjz.apps.base.log.action.SecLogExport" caption="安全日志导出"  event-type="2">                 
+			 <result name="success" type="stream">                      
+				 <param name="contentType">${contentType}</param>                      
+				 <param name="inputName">inputStream</param>                      
+				 <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>                      
+				 <param name="bufferSize">4096</param>                  
+			 </result>     
+			 <result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			 </result>      
+			 <interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="auditLogExport" class="com.hnjz.apps.base.log.action.AuditLogExport" caption="审计日志导出"  event-type="2">                 
+			 <result name="success" type="stream">                      
+				 <param name="contentType">${contentType}</param>                      
+				 <param name="inputName">inputStream</param>                      
+				 <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>                      
+				 <param name="bufferSize">4096</param>                  
+			 </result>     
+			 <result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			 </result>      
+			 <interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="logStatExport" class="com.hnjz.apps.base.log.action.LogStatExport" caption="日志统计导出"  event-type="2">                 
+			 <result name="success" type="stream">                      
+				 <param name="contentType">${contentType}</param>                      
+				 <param name="inputName">inputStream</param>                      
+				 <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>                      
+				 <param name="bufferSize">4096</param>                  
+			 </result>     
+			 <result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			 </result>      
+			 <interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="logFxExport" class="com.hnjz.apps.base.log.action.LogFxExport" caption="日志分析导出"  event-type="2">                 
+			 <result name="success" type="stream">                      
+				 <param name="contentType">${contentType}</param>                      
+				 <param name="inputName">inputStream</param>                      
+				 <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>                      
+				 <param name="bufferSize">4096</param>                  
+			 </result>     
+			 <result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			 </result>      
+			 <interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="dirSAlertSetting" class="com.hnjz.apps.base.log.action.DirSAlertSetting" caption="日志预警列表查询"  event-type="2">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/log/dirsalertsetting.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="getSAlertSetting" class="com.hnjz.apps.base.log.action.GetSAlertSetting" caption="获取日志预警"  event-type="2">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/log/getsalertsetting.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		
+		<action name="addSAlertSetting" class="com.hnjz.apps.base.log.action.AddSAlertSetting" caption="添加日志预警"  event-type="2">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		
+		<action name="updSAlertSetting" class="com.hnjz.apps.base.log.action.UpdSAlertSetting" caption="修改日志预警"  event-type="2">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		
+		<action name="delSAlertSetting" class="com.hnjz.apps.base.log.action.DelSAlertSetting" caption="删除日志预警"  event-type="2">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+		<action name="logSizeOut" class="com.hnjz.apps.base.log.action.LogSizeOut" caption="日志预警"  event-type="2">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+	</package>
+</xwork>

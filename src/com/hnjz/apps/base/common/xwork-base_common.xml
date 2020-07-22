@@ -1,0 +1,16 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+<xwork>
+	<package name="acl_common" extends="webwork-default" systemId="1001" caption="通用工具">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="clearCache" class="com.hnjz.apps.base.common.action.ClearCache" caption="缓存清理">
+			<result name="success" type="json"/>
+			<result name="error" type="json" />
+		</action>
+		<action name="getDesKey" class="com.hnjz.apps.base.common.action.GetCurrentDesKey" caption="产生des密钥">
+			<result name="success" type="json"/>
+			<result name="error" type="json" />
+		</action>
+	</package>
+</xwork>

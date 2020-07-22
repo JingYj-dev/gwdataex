@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="gwdataex">
+    <output-path>$PROJECT_DIR$/WebRoot/WEB-INF/classes/artifacts/gwdataex</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="gwdataex" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="spring" />
+          <element id="library" level="project" name="webwork" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="gwdataex/web/Web" />
+    </root>
+  </artifact>
+</component>

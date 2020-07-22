@@ -1,0 +1,54 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+
+<xwork>
+	<package name="acl_secparam" extends="webwork-default" systemId="1001" caption="安全参数设置">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="dirSecParam" class="com.hnjz.apps.base.security.action.DirSecParam" caption="列出参数列表"   event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/security/dirsecparam.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="addSecParam" class="com.hnjz.apps.base.security.action.AddSecParam" caption="添加参数"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="delSecParam" class="com.hnjz.apps.base.security.action.DelSecParam" caption="删除参数"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getSecParam" class="com.hnjz.apps.base.security.action.GetSecParam" caption="获取参数"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/security/getsecparam.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="updSecParam" class="com.hnjz.apps.base.security.action.UpdSecParam" caption="修改参数"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+	</package>
+</xwork>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hnjz.apps.base.theme.model.Theme" table="S_THEME">
+        <id name="uuid" type="java.lang.String">
+            <column name="UUID" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="code" type="java.lang.String">
+            <column name="CODE" length="20" />
+        </property>
+          <property name="name" type="java.lang.String">
+            <column name="NAME" length="50" />
+        </property>
+        <property name="picUrl" type="java.lang.String">
+            <column name="PIC_URL" length="255" />
+        </property>
+        <property name="typeId" type="java.lang.String">
+            <column name="TYPE_ID" length="10" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="REMARK" />
+        </property>
+        <property name="openFlag" type="java.lang.String">
+            <column name="OPEN_FLAG" />
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="7" />
+        </property>
+        <property name="orderNum" type="java.lang.Integer">
+            <column name="ORDER_NUM"/>
+        </property>
+    </class>
+</hibernate-mapping>

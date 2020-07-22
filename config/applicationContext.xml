@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xmlns:util="http://www.springframework.org/schema/util"-->
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+<!--       http://www.springframework.org/schema/beans/spring-beans-2.0.xsd-->
+<!--       http://www.springframework.org/schema/util-->
+<!--       http://www.springframework.org/schema/util/spring-util-3.0.xsd"-->
+
+
+<!--&gt;-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+            http://www.springframework.org/schema/util
+            http://www.springframework.org/schema/util/spring-util-3.0.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+            http://www.springframework.org/schema/jdbc
+            http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+            http://www.springframework.org/schema/task
+			http://www.springframework.org/schema/task/spring-task-3.2.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop.xsd"
+>
+
+    <context:annotation-config/>
+    <!-- view层自动装配搜索包路径 -->
+    <context:component-scan base-package="com.hnjz"/>
+
+
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:/jdbc.properties</value>
+                <value>classpath:/appconfig.properties</value>
+                <value>classpath:/memcached.properties</value>
+                <!--<value>classpath:/sys.properties</value>
+                <value>classpath:/mas.properties</value>-->
+            </list>
+        </property>
+    </bean>
+    <!-- <bean id="exceptionResolver" class="com.hnjz.common.exception.ExceptionHandler"/> -->
+    <util:properties id="jdbc" location="classpath:/jdbc.properties"/>
+    <util:properties id="appconfig" location="classpath:/appconfig.properties"/>
+    <util:properties id="memcached" location="classpath:/memcached.properties"/>
+
+
+    <!-- <util:properties id="settings" location="classpath:/sys.properties">
+     </util:properties>
+     <util:properties id="mas" location="classpath:/mas.properties">
+     </util:properties>-->
+    <!-- ========================= RESOURCE DEFINITIONS ========================= -->
+    <!-- The placeholders are resolved from jdbc.properties through -->
+    <!-- the PropertyPlaceholderConfigurer in applicationContext.xml -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+          destroy-method="close">
+        <property name="driverClass" value="${jdbc.driverClassName}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <!-- 连接池参数 -->
+        <!-- 池中保留的最小连接数 10个 -->
+        <property name="minPoolSize" value="2"/>
+        <!-- 池中保留的最大连接数 默认15个 -->
+        <property name="maxPoolSize" value="10"/>
+        <!-- 初始化时活得的连接数 -->
+        <property name="initialPoolSize" value="2"/>
+        <!-- 连接的最大空闲时间，超过这个时间，如果这个连接还没有被使用，则连接被丢弃 0为永不丢弃，默认为0 -->
+        <property name="maxIdleTime" value="60"/>
+        <!-- 当连接池中的连接耗尽时，c3p0一次获取的连接数 -->
+        <property name="acquireIncrement" value="3"/>
+        <!-- JDBC标准参数，用以控制数据源内加载的PreparedStatement数量 但是，由于预缓存的statements属于单个connection而不是整个连接池
+            所以设置这个参数需要考虑到多方面的因素 如果，maxStatements与maxStatementsPerConnection均为0，则缓存被关闭，默认：0 -->
+        <property name="maxStatements" value="0"/>
+        <!-- 每60秒检查连接池中的所有空闲连接 -->
+        <property name="idleConnectionTestPeriod" value="60"/>
+        <!-- 定义从数据库获取新连接失败后重复尝试的次数 默认：30 -->
+        <property name="acquireRetryAttempts" value="30"/>
+        <!-- 因性能消耗大请只在需要的时候使用它。如果设为true那么在每个connection提交的 时候都将校验其有效性。建议使用idleConnectionTestPeriod或automaticTestTable
+            等方法来提升连接测试的性能。Default: false -->
+        <property name="testConnectionOnCheckout" value="false"/>
+    </bean>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+    </bean>
+    <bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"
+          lazy-init="true"/>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"
+          destroy-method="destroy">
+        <property name="lobHandler" ref="lobHandler"/>
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+        <!--<property name="mappingJarLocations">
+            <list>
+                <value>WEB-INF/lib/jz-platform-1.2.jar</value>
+            </list>
+        </property>-->
+        <property name="mappingDirectoryLocations">
+            <list>
+                <!--
+                                <value>classpath:/com/hnjz/platform/sys/po/</value>
+                -->
+            </list>
+        </property>
+
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">
+                    ${hibernate.dialect}
+                </prop>
+                <prop key="max_fetch_depth">${max_fetch_depth}</prop>
+                <prop key="hibernate.show_sql">
+                    ${hibernate.show_sql}
+                </prop>
+                <prop key="hibernate.format_sql">
+                    false
+                </prop>
+                <!--
+                <prop key="hibernate.use_sql_comments">
+                    ${hibernate.use_sql_comments}
+                </prop>
+                -->
+            </props>
+        </property>
+    </bean>
+
+    <!--    <bean id="dao" class="com.hnjz.base.dao.DaoImpl">-->
+    <!--        <property name="sessionFactory" ref="sessionFactory"/>-->
+    <!--    </bean>-->
+</beans>

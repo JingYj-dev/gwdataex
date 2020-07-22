@@ -1,0 +1,1 @@
+<% response.setContentType("application/x-javascript;charset=UTF-8");%><%@ taglib prefix="ww" uri="webwork" %><ww:property value="result"/>

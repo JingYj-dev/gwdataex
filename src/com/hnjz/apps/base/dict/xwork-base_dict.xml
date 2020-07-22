@@ -1,0 +1,61 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+<xwork>
+	<package name="acl_dict" extends="webwork-default" systemId="1001" caption="字典管理">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="dirDict" class="com.hnjz.apps.base.dict.action.DirDict" caption="查询字典"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/dict/dirdict.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<!-- 字典管理 -->
+		<action name="getDict" class="com.hnjz.apps.base.dict.action.GetDict" caption="获取字典"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/dict/getdict.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doAjaxError.action</param>
+			</result>
+		</action>
+		<action name="addDict" class="com.hnjz.apps.base.dict.action.AddDict" caption="添加字典"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="updDict" class="com.hnjz.apps.base.dict.action.UpdDict" caption="修改字典"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="delDict" class="com.hnjz.apps.base.dict.action.DelDict" caption="删除字典"  event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<!-- 服务器配置管理 -->
+		
+		<action name="dirServerid" class="com.hnjz.apps.base.dict.action.DirServerid" caption="查询服务器配置列表">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/dict/dirdict.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+		</action> 
+	</package>
+</xwork>

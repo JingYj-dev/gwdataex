@@ -1,0 +1,354 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+
+<xwork>
+	<package name="acl_user" extends="webwork-default" systemId="1001" caption="用户管理">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="addUser" class="com.hnjz.apps.base.user.action.AddUser" caption="添加用户" event-type="3">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="dirUser" class="com.hnjz.apps.base.user.action.DirUser" caption="查询用户" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/user/diruser.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="dirUserMini" class="com.hnjz.apps.base.user.action.DirUser" caption="获取用户" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/user/dirusermini.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="updUser" class="com.hnjz.apps.base.user.action.UpdUser" caption="修改用户" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="modelDrivenStack" />
+		</action>
+		<action name="updPassword" class="com.hnjz.apps.base.user.action.UpdPassword" caption="重置密码" event-type="5"> 
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="updUserStatus" class="com.hnjz.apps.base.user.action.UpdUserStatus" caption="修改用户状态" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="perUserActiveStatus" class="com.hnjz.apps.base.user.action.PerUserActiveStatus" caption="允许用户激活" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="getUser" class="com.hnjz.apps.base.user.action.GetUser" caption="获取用户信息" >
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/user/getuser.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="delUser" class="com.hnjz.apps.base.user.action.DelUser" caption="删除用户" event-type="3">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="delUserRole" class="com.hnjz.apps.base.user.action.DelUserRole" caption="删除用户角色" event-type="4">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="getUserRoleTree" class="com.hnjz.apps.base.user.action.GetUserRoleTree" caption="获取用户角色树" event-type="4">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/user/getuserroletree.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="getUserPostTree" class="com.hnjz.apps.base.user.action.GetUserPostTree" caption="获取用户岗位树" event-type="4">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/user/getuserposttree.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="getUserPost" class="com.hnjz.apps.base.user.action.GetUserPost" caption="获取用户岗位" event-type="4">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/user/getuserpost.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doAjaxError.action</param>
+			</result>
+		</action>
+		<action name="dirUserRole" class="com.hnjz.apps.base.user.action.DirUserRole" caption="管理用户角色" event-type="4">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/user/diruserrole.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="getUserRole" class="com.hnjz.apps.base.user.action.GetUserRole" caption="获取可授权角色" event-type="4">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/user/getuserrole.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doAjaxError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="dirUserRoleMini" class="com.hnjz.apps.base.user.action.DirUserRoleMini" caption="查询可授权角色" event-type="4">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/user/diruserrolemini.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="dirUserPost" class="com.hnjz.apps.base.user.action.DirUserPost" caption="管理用户岗位" event-type="4">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/user/diruserpost.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="addUserRole" class="com.hnjz.apps.base.user.action.AddUserRole" caption="添加用户角色" event-type="4">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="addUserPost" class="com.hnjz.apps.base.user.action.AddUserPost" caption="添加用户岗位" event-type="4">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+				<action name="delUserPost" class="com.hnjz.apps.base.user.action.DelUserPost" caption="删除用户岗位" event-type="4">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="updPassword" class="com.hnjz.apps.base.user.action.UpdPassword" caption="修改密码" event-type="1">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result  name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="login" class="com.hnjz.apps.base.user.action.login.Login" caption="用户登录" event-type="11">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="updpwd" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />		
+		</action>
+<!--
+		<action name="login" class="com.hnjz.apps.base.user.action.login.Login" caption="用户登录" event-type="11">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="updpwd" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+-->
+
+
+
+
+		<action name="quit" class="com.hnjz.apps.base.user.action.login.Quit" caption="用户登出" event-type="11">
+			<result name="success" type="redirect">
+				<param name="location">/index.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">/index.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />		
+		</action>
+		<action name="autoLogin" class="com.hnjz.apps.base.user.action.login.AutoLogin" caption="用户自动登录" event-type="11">
+			<result name="success" type="redirect">
+				<param name="location">/explorer.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">/index.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />		
+		</action>
+		
+		<!-- 后台管理 -->
+		<action name="adminLogin" class="com.hnjz.apps.base.user.action.login.Login" caption="用户登录" event-type="11">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />		
+		</action>	
+		<action name="adminAutoLogin" class="com.hnjz.apps.base.user.action.login.AutoLogin" caption="用户自动登录" event-type="11">
+			<result name="success" type="redirect">
+				<param name="location">/explorer.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">/index.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />		
+		</action>	
+		<action name="adminQuit" class="com.hnjz.apps.base.user.action.login.Quit" caption="用户登出" event-type="11">
+			<result name="success" type="redirect">
+				<param name="location">/adminlogin.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">/adminlogin.jsp</param>
+			</result>
+			<interceptor-ref name="defaultStack" />		
+		</action>
+		<action name="getUserSettings" class="com.hnjz.apps.base.user.action.GetUserSettings" caption="打开设置">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/user/getUserSettings.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="updUserSettings" class="com.hnjz.apps.base.user.action.UpdUserSettings" caption="保存设置" event-type="1">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="dirUserAdmin" class="com.hnjz.apps.base.user.action.admin.DirUserAdmin" caption="查询授权用户">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/user/admin/diruser.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="dirUserAdminMini" class="com.hnjz.apps.base.user.action.admin.DirUserAdmin" caption="查询授权用户">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/user/admin/dirusermini.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		
+		<action name="updSafesPassword" class="com.hnjz.apps.base.user.action.login.UpdSafesPassword" caption="安全修改密码" event-type="1">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="getUpdPassword" class="com.hnjz.apps.base.user.action.login.GetUpdPassword" caption="获取修改密码" >
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/user/updpwd.jsp</param>
+			</result>
+			<result name="error" type="redirect">
+				<param name="location">doError.action</param>
+			</result>
+			<result name="login" type="redirect">
+				<param name="location">/index.jsp</param>
+			</result>
+		</action>
+		
+		<action name="firstPage" class="com.hnjz.apps.base.user.action.FirstPage" caption="显示首页">
+			<result name="success" type="dispatcher">
+				<param name="location">/firstpage.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/firstpage.jsp</param>
+			</result>
+		</action>
+		
+		<action name="updPasswordSetting" class="com.hnjz.apps.base.user.action.UpdPasswordSetting" caption="设置中修改密码" event-type="1">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="updReviewPwdSetting" class="com.hnjz.apps.base.user.action.UpdReviewPwdSetting" caption="设置中修改签章密码" event-type="1">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="updPersonalSetting" class="com.hnjz.apps.base.user.action.UpdPersonalSetting" caption="设置中修改个人资料">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="getLoginStyle" class="com.hnjz.apps.base.user.action.login.GetLoginStyle" caption="登录方式" event-type="3">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+	</package>
+</xwork>

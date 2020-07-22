@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="ie7 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- Site CSS -->
+      <link href="../cssui/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+      <link href="../cssui/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+      <link href="../cssui/layout/default.css" rel="stylesheet"/>
+      <link href="../cssui/layout/document.css" rel="stylesheet"/>
+      <link href="../cssui/themes/metro/style.css" rel="stylesheet"/>
+      <script type="text/javascript" src="../lib/ajax-pushlet-client.js"></script>
+    </head>
+  <body class="page-header-fixed">
+      <div class="header navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="index.html"><img src="../custom/brand.png" /></a>
+          <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+          <img src="../cssui/images/menu-toggler.png" alt="">
+          </a>             
+          <ul class="nav pull-right">
+            <li class="dropdown">
+              <a class="user" href="javascript:;">
+                <span>李日春</span>
+                <i class="icon-down"></i>
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;">
+              <i class="icon-setting"></i>
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;">
+              <i class="icon-quit"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+      <div class="page-container">
+        <div class="page-content">
+          <div id="tab-01">
+            <div class="tab-content layoutBox">
+              <div class="tab-pane active" id="home">
+                <div class="row-fluid column-seperation">
+                  <div class="editpass">
+                    <div class="title">修改密码</div>
+                    <div class="con">
+                        <ul>
+                          <li><span>登<em></em>录<em></em>名：</span>王大毛</li>
+                          <li><span>姓<em></em><em></em><em></em><em></em>名：</span>王大毛</li>
+                          <li><span>原<em></em>密<em></em>码：</span><input type="password" /></li>
+                          <li><span>新<em></em>密<em></em>码：</span><input type="password" /><em class="nor">密码是由数字和字符组成。</em></li>
+                          <li class="strength">
+                            <table border="0" cellpadding="0" cellspacing="0"> 
+                              <tr> 
+                                <td id="strength_L" class="l">弱</td> 
+                                <td id="strength_M" class="m cur">中</td> 
+                                <td id="strength_H" class="h">强</td> 
+                              </tr> 
+                            </table>
+                          </li>
+                          <li><span>确认密码：</span><input type="password" /><em class="err">新密码不能与原密码相同！</em></li>
+                        </ul>
+                      <div class="win_btn">
+                        <a href="#" class="submit">保存</a><a href="#" class="reset">取消</a>
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    <script type="text/javascript" src="../cssui/js/easyloader.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.history.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/jquery.blockui.min.js"></script>
+    <script type="text/javascript" src="../cssui/plugins/lhgdialog/lhgdialog.min.js?skin=add"></script>
+    <script type="text/javascript" src="../cssui/plugins/ajaxupload/ajaxupload.3.6.min.js"></script>
+    <script type="text/javascript" src="../cssui/js/cssui.js"></script>
+    <script type="text/javascript" src="../cssui/js/app.js"></script>
+    <script type="text/javascript">
+      // using('dialog',function(){
+      //  var dg = new $.dialog({   
+       //       id: 'test1',   
+       //       title: '弹出窗口',   
+       //       html: '弹出窗口内容' 
+       //  });
+      // })
+    g_user={id:'<ww:property value="#session.sUser.userId" />',name:'<ww:property value="#session.sUser.realName" />'};
+    </script>
+  </body>
+</html> 

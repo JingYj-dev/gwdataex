@@ -1,0 +1,24 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+<xwork>
+	<package name="common" extends="webwork-default" systemId="1000" caption="通用模块">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="doError" class="com.hnjz.webbase.webwork.action.DoErrorAction" caption="出错处理">
+			<result name="success" type="dispatcher">
+				<param name="location">/msgclient.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/msgclient.jsp</param>
+			</result>
+		</action>
+		<action name="doAjaxError" class="com.hnjz.webbase.webwork.action.DoErrorAction" caption="出错处理2">
+			<result name="success" type="dispatcher">
+				<param name="location">/msgajax.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/msgajax.jsp</param>
+			</result>
+		</action>	
+	</package>
+</xwork>

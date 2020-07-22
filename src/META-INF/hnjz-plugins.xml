@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE plugins SYSTEM "plugin.dtd">
+<!--跟spring-->
+<plugins>
+    <plugin id="com.hnjz.core.plugins.base.IDictProvider" alias="base"
+            class="com.hnjz.apps.base.dict.service.DefaultDictProvider">
+        <name>DictProvider</name>
+    </plugin>
+    <plugin id="com.hnjz.core.plugins.base.ILogProvider" alias="dbext"
+            class="com.hnjz.apps.base.log.service.LogService">
+        <name>LogProvider</name>
+        <plugin-config>
+            <prototype>tree</prototype>
+        </plugin-config>
+    </plugin>
+    ''q
+    <plugin id="com.hnjz.webbase.menu.IMenuProvider" alias="run,admin"
+            class="com.hnjz.apps.base.menu.service.DBMenuProvider">
+        <name>dbMenuProvider</name>
+        <load-level>10</load-level>
+    </plugin>
+
+
+    <!-- License 校验器-->
+<!--    <plugin id="com.hnjz.core.plugins.base.ILicenser" class="com.hnjz.license.DefaultLicenser">-->
+<!--        <name>DefaultLicenser</name>-->
+<!--        <version>1.0.0</version>-->
+<!--        <plugin-config>-->
+<!--            <license-file>/META-INF/lic.dat</license-file>-->
+<!--        </plugin-config>-->
+<!--    </plugin>-->
+
+
+    <!--css-components-1.0.jar-->
+    <!-- memcached 缓存-->
+    <plugin id="com.hnjz.components.cache.ICacher" class="com.hnjz.components.cache.impl.DistributeCacher"
+            alias="memcached">
+        <name>MemcachedCacher</name>
+        <plugin-config>
+            <conf>/memcached.properties</conf>
+        </plugin-config>
+    </plugin>
+    <!--memory JVM内存缓存 -->
+    <plugin id="com.hnjz.components.cache.ICacher" class="com.hnjz.components.cache.impl.InProcessCacher"
+            alias="memory">
+        <name>MemoryCacher</name>
+        <load-level>98</load-level>
+        <plugin-config>
+            <scan-interval>300000</scan-interval>
+        </plugin-config>
+    </plugin>
+    <!-- none 无缓存设置 ，高装载级别-->
+    <plugin id="com.hnjz.components.cache.ICacher" class="com.hnjz.components.cache.impl.DummyCacher" alias="none">
+        <name>NoneCacher</name>
+        <load-level>99</load-level>
+    </plugin>
+
+    <!--css-webbase-1.1.jar-->
+    <plugin id="com.hnjz.common.plugins.Initializable" key="proxool"
+            class="com.hnjz.webbase.plugins.bootstrap.ProxoolStartupPlugin">
+        <name>ProxoolProvider</name>
+    </plugin>
+    <plugin id="com.hnjz.common.plugins.Initializable" key="funcs"
+            class="com.hnjz.webbase.plugins.bootstrap.FunctionProviderPlugin">
+        <name>FunctionPointsProvider</name>
+    </plugin>
+    <!--加载报错-->
+    <!--	<plugin  id="com.hnjz.webbase.menu.IMenuProvider"    alias="admin"  class="com.hnjz.webbase.menu.DeafultMenuProvider">-->
+    <!--		<name>adminMenuProvider</name>-->
+    <!--		<load-level>99</load-level>-->
+    <!--	</plugin>-->
+    <!--加载报错-->
+    <!--	<plugin  id="com.hnjz.webbase.plugins.privilege.IPrivilegeChecker"  key="actionCode"  class="com.hnjz.webbase.plugins.privilege.impl.DefaultPriviledeChecker">-->
+    <!--		<name>defaultPrivilegeChecker</name>-->
+    <!--		<load-level>99</load-level>-->
+    <!--	</plugin>-->
+    <plugin id="com.hnjz.webbase.plugins.privilege.IPrivilegeChecker"
+            class="com.hnjz.webbase.plugins.privilege.impl.ExPriviledeChecker">
+        <name>exPrivilegeChecker</name>
+        <load-level>99</load-level>
+    </plugin>
+
+</plugins>

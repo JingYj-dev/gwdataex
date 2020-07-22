@@ -1,0 +1,104 @@
+<div class="tableschfild">
+  <div class="tableschtitle"><span class="txt">查询条件</span><a class="clo"><i></i>高级查询</a></div>
+  <div class="tableschcon">
+    <ul>
+      <li><span class="txt">标题：</span><input type="text" class="input_b" style="width:560px;" disabled="disabled" onfocus="this.blur"/><input type="submit" value="查询" class="btn green" title="查询"></li>
+      <!-- <li><span class="txt">文件编号：</span><div class="select select_s">
+        <input type="text" class="input_s" /><a href="#" class="down_icon"></a>
+          </div><div class="select select_s">
+        <input type="text" class="input_s" /><a href="#" class="down_icon"></a>
+          </div><input type="text" class="input_s" />
+      </li>
+      <li><span class="txtr">紧急程度：</span><div class="select select_m">
+            <input type="text" class="input_m" /><a href="#" class="down_icon"></a>
+        </div></li>
+      <li><span class="txt">文种：</span><div class="select select_m">
+            <input type="text" class="input_m" /><a href="#" class="down_icon"></a>
+        </div>
+      </li>
+      <li><span class="txtr">主送：</span><div class="select select_m">
+            <input type="text" class="input_m" /><a href="#" class="down_icon"></a>
+        </div></li>
+      <li><span class="txt">办结状态：</span><div class="select select_m">
+            <input type="text" class="input_m" /><a href="#" class="down_icon"></a>
+        </div></li>
+      <li><span class="txtr">拟稿人：</span><input type="text" class="input_m" /></li>
+      <li><span class="txt">拟稿日期：</span><input class="input_d Wdate" id="endDate" name="endDate" readonly="true" type="text" onclick="WdatePicker()" value=""><span class="mar">到</span><input class="input_d Wdate" id="endDate" name="endDate" readonly="true" type="text" onclick="WdatePicker()" value=""></li> -->
+    </ul>
+    <!-- <div class="tableshcbtn"><input type="submit" value="查询" class="btn green" title="查询"><input type="reset" value="取消" class="btn reset" title="取消"></div> -->
+  </div>
+</div>
+<form class="form-horizontal table-form" id="add_user_form" action="table_basic.html" onsubmit="return navTabSearch(this)">
+    <input type="hidden" name="page.orderFlag" class="order-flag" value="0"> 
+    <input type="hidden" name="page.orderString" class="order-string" value="time">
+    <input type="hidden" name="page.pageSize" class="page-size" value="20">
+    <input type="hidden" name="page.totalPages" class="page-count" value="5">
+    <input type="hidden" name="page.currentPage" class="page-current" value="1">
+    <div class="table_list_tab"><a href="#" class="">全部</a><a href="#" class="active">我的</a><a href="#" class="">岗位</a></div>
+    <div class="table_operate_btn">
+      <a href="#"><i class="icon_qs"></i>签收</a><a href="#"><i class="icon_wt"></i>委托</a><a href="#"><i class="icon_qxwt"></i>取消委托</a><a href="#"><i class="icon_zj"></i>终结</a><a href="#"><i class="icon_lcgz"></i>流程跟踪</a><a href="#"><i class="icon_szzt"></i>设置状态</a>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th width="20px"></th>
+          <th width="20px"><input group="ids" class="cleck-all" type="checkbox"/></th>
+          <th width="120px">操作</th>
+          <th width="40px">编号</th>
+          <th align="left">名称</th>
+          <th width="120px" order-field="time" class="order">时间</th>
+          <th width="50px" order-field="state" class="order">状态</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr rel="1">
+          <td class="text-center"><span class="expand"><i class="icon-chevron-down"></i></span></td>
+          <td class="text-center"><input name="ids" value="1" type="checkbox"/></td>
+          <td class="text-center">
+            <a href="table_add_form.html?id=1" target="cssTab">查看</a>&nbsp;
+            <a href="table_add_form.html?id=1" target="cssTab">编辑</a>&nbsp;
+            <a href="javascript:;" onclick="$.cssTable.focus().cssTable('del','data/success.json?ids=1')">删除</a>
+          </td>
+          <td>1</td>
+          <td>张三</td>
+          <td class="text-center">2014-1-1 11:21</td>
+          <td class="text-center">开启</td>
+        </tr>
+        <tr class="sub"><td colspan="7">详细内容0</td></tr>
+        <tr rel="2">
+          <td class="text-center"><span class="expand"><i class="icon-chevron-down"></i></span></td>
+          <td class="text-center"><input name="ids" value="1" type="checkbox"/></td>
+          <td class="text-center">
+            <a href="table_add_form.html?id=1" target="cssTab">查看</a>&nbsp;
+            <a href="table_add_form.html?id=1" target="cssTab">编辑</a>&nbsp;
+            <a href="javascript:;" onclick="$.cssTable.focus().cssTable('del','data/success.json?ids=1')">删除</a>
+          </td>
+          <td>1</td>
+          <td>张三</td>
+          <td class="text-center">2014-1-1 11:21</td>
+          <td class="text-center">开启</td>
+        </tr>
+        <tr rel="1">
+          <td class="text-center"><span class="expand"><i class="icon-chevron-down"></i></span></td>
+          <td class="text-center"><input name="ids" value="1" type="checkbox"/></td>
+          <td class="text-center">
+            <a href="table_add_form.html?id=1" target="cssTab">查看</a>&nbsp;
+            <a href="table_add_form.html?id=1" target="cssTab">编辑</a>&nbsp;
+            <a href="javascript:;" onclick="$.cssTable.focus().cssTable('del','data/success.json?ids=1')">删除</a>
+          </td>
+          <td>1</td>
+          <td>张三</td>
+          <td class="text-center">2014-1-1 11:21</td>
+          <td class="text-center">开启</td>
+        </tr>
+        <tr class="sub"><td colspan="7">详细内容0</td></tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <ul>
+        <li><a class="page-next" href="javascript:;">下一页</a></li>　
+        <li><a class="page-last" href="javascript:;">尾页</a></li>　
+        <li>第<input class="page-jump" size="3" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" value="1">页 <a href="javascript:;" class="page-go">Go</a> 共8页 每页<input class="page-num" size="3" maxlength="6" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" name="page.pageSize" value="10">条 记录总数：<b>76</b>条</li>
+      </ul>
+    </div>
+  </form>

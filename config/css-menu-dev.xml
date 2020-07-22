@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<css-menu>
+		<menu id="F_014" name="我的工作" icon="icon-user" visible="true" level="1">
+		  <menu id="F_0141" name="待办工作" icon="icon-user" path="dirRequireDoWork.action?bizId=fwapp" visible="true" level="2"/>
+		  <menu id="F_0142" name="已办工作" icon="icon-user" path="dirFinishedWork.action?type=2" visible="true" level="2"/>
+		</menu>
+		<menu id="F_013" name="发文管理" icon="icon-arrow-left" visible="true" level="1">
+		  <!--<menu id="F_0114" name="我的信息" icon="icon-user" path="dirMyNews.action" visible="true" level="2"/>-->
+		  <menu id="F_0131" name="发文起草" icon="icon-user" path="getFwType.action?bizId=fwapp" visible="true" level="2"/>
+		  <menu id="F_0132" name="发文查询" icon="icon-user" path="dirFw.action" visible="true" level="2"/>
+		  <menu id="F_0133" name="废件箱" icon="icon-user" path="dirWasteBoxFw.action" visible="true" level="2"/>
+		  <menu id="F_0134" name="草稿箱" icon="icon-user" path="dirFwDraft.action" visible="true" level="2"/>
+		</menu>
+		<menu id="F_017" name="收文管理" icon="icon-arrow-right" visible="true" level="1">
+		  <menu id="F_0172" name="收文登记" icon="icon-user" path="getTaskPage.action?bizId=swapp" visible="true" level="2"/>
+		  <menu id="F_0173" name="收文查询" icon="icon-user" path="dirSw.action" visible="true" level="2"/>
+		  <menu id="F_0174" name="废件箱" icon="icon-user" path="dirWasteBoxSw.action" visible="true" level="2"/>
+		  <menu id="F_0175" name="草稿箱" icon="icon-user" path="dirSwDraft.action" visible="true" level="2"/>
+		</menu>
+		<menu id="F_015" name="归档管理" icon="icon-folder-open" visible="true" level="1">
+		  <menu id="F_0151" name="待归档公文" icon="icon-user" path="dirDgd.action" visible="true" level="2"/>
+		  <menu id="F_0152" name="已归档公文" icon="icon-user" path="dirYgd.action" visible="true" level="2"/>
+		  <menu id="F_0153" name="已移交公文" icon="icon-user" path="dirYyj.action" visible="true" level="2"/>
+		  <!--<menu id="F_0154" name="归档目录维护" icon="icon-user" path="dirCatalog.action" visible="true" level="2"/>-->
+		</menu>	
+		<menu id="F_016" name="催办管理" icon="icon-envelope" visible="true" level="1">
+		  <menu id="F_0161" name="催办事项" icon="icon-user" path="dirSendUrgency.action" visible="true" level="2"/>
+		  <menu id="F_0162" name="催办回复" icon="icon-user" path="dirReceiveUrgency.action" visible="true" level="2"/>
+		</menu>	
+		<menu id="F_0" name="系统管理" icon="icon-wrench" visible="true" level="1">
+			<menu id="F_001" name="应用系统管理" icon="icon-th-large" path="dirSys.action" visible="true" level="2"/>
+			<menu id="F_002" name="字典管理" icon="icon-book" path="dirDict.action" visible="true" level="2"/>
+			<menu id="F_003" name="角色管理" icon="icon-bookmark" path="dirRole.action" visible="true" level="2"/>
+			<menu id="F_004" name="功能管理" icon="icon-cog" path="dirFunc.action?flag=true" visible="true" level="2"/>
+			<menu id="F_005" name="日志管理" icon="icon-user" visible="true" level="2">
+				<menu id="F_00512" name="操作日志" icon="icon-user" path="dirLogExt.action?logType=1" visible="true" level="3"/>
+				<menu id="F_00513" name="系统日志" icon="icon-road" path="dirLogExt.action?logType=2" visible="true" level="3"/>
+				<menu id="F_00514" name="安全日志" icon="icon-user" path="dirLogExt.action?logType=3" visible="true" level="3"/>
+			</menu>
+			<menu id="F_0052" name="日志审计" icon="icon-user" visible="true" level="2">
+				<menu id="F_00521" name="操作日志" icon="icon-user" path="dirOpLog.action" visible="true" level="3"/>
+				<menu id="F_00522" name="安全日志" icon="icon-road" path="dirSecLog.action" visible="true" level="3"/>
+				<menu id="F_00523" name="审计日志" icon="icon-user" path="dirAuditLog.action" visible="true" level="3"/>
+				<menu id="F_00524" name="日志统计" icon="icon-user" path="logStat.action" visible="true" level="3"/>
+			</menu>
+			<menu id="F_006" name="组织机构管理" icon="icon-star-empty" path="dirOrg.action" visible="true" level="2"/>
+			<menu id="F_007" name="岗位管理" icon="icon-road" path="dirPost.action" visible="true" level="2"/>
+			<menu id="F_008" name="用户管理" icon="icon-user" path="dirUser.action" visible="true" level="2"/>
+			<menu id="F_009" name="用户授权" icon="icon-user" path="dirUserAdmin.action" visible="true" level="2"/>
+			<menu id="F_017" name="菜单管理" icon="icon-user" path="dirMenu.action" visible="true" level="2"/>
+		    <menu id="F_0171" name="废件管理" icon="icon-user" path="dirRecycle.action" visible="true" level="2"/>
+			<menu id="F_0123"  name="流程监控" icon="icon-user" path="dirProcess.action" visible="true" level="2"/>
+			<menu id="F_0121"  name="业务模块管理" icon="icon-user" path="dirOaBiz.action" visible="true" level="2"/>
+			<menu id="F_019"  name="业务编号管理" icon="icon-user" path="dirNoDef.action" visible="true" level="2"/>
+			<menu id="F_012"  name="公文配置管理" icon="icon-user" visible="true" level="2">
+			  <menu id="F_01221" name="发文类型管理" icon="icon-user" path="dirFwDocType.action" visible="true" level="3"/>
+			  <menu id="F_01222" name="发文字管理" icon="icon-user" path="dirFWWord.action" visible="true" level="3"/>
+			  <menu id="F_01223" name="收文字管理" icon="icon-user" path="dirSWWord.action" visible="true" level="3"/>
+			  <menu id="F_01224" name="公文编号管理" icon="icon-user" path="dirNumberMain.action" visible="true" level="3"/>		
+			</menu>
+			<menu id="F_013"  name="交换系统管理" icon="icon-user" visible="true" level="2">
+			  <menu id="F_01331" name="目录管理" icon="icon-user" path="dirDataexSysDir.action" visible="true" level="3"/>
+			  <menu id="F_01332" name="交换流水" icon="icon-user" path="dirDataexSysTrans.action" visible="true" level="3"/>
+			  <menu id="F_01333" name="交换日志" icon="icon-user" path="dirDataexSysTransLog.action" visible="true" level="3"/>
+			  <menu id="F_01334" name="参数管理" icon="icon-user" path="dirDataexSysTransParam.action" visible="true" level="3"/>
+			  <menu id="F_01335" name="发送任务监控" icon="icon-user" path="dirDataexSysTransQueue.action" visible="true" level="3"/>
+			  <menu id="F_01336" name="公文交换统计" icon="icon-user" path="dirDataexSysExStat.action" visible="true" level="3"/>
+			</menu>
+			<menu id="F_020"  name="标准件配置" icon="icon-user" path="dirIntegration.action" visible="true" level="2"/>
+			<menu id="F_020"  name="安全参数设置" icon="icon-user" path="dirSecParam.action" visible="true" level="2"/>
+			<menu id="F_021"  name="审计参数设置" icon="icon-user" path="dirAuditParam.action" visible="true" level="2"/>
+		</menu>	
+		<menu id="F_018" name="数据交换" icon="icon-retweet" visible="true" level="1">
+		  <menu id="F_0181" name="发送公文" icon="icon-user" path="getSendDoc.action" visible="true" level="2"/>
+		  <menu id="F_0182" name="收件箱" icon="icon-user" path="dirDataexInbox.action" visible="true" level="2"/>
+		  <menu id="F_0183" name="发件箱" icon="icon-user" path="dirDataexOutbox.action" visible="true" level="2"/>
+		  <menu id="F_0189" name="测试页面" icon="icon-user" path="ceshiGetSendGw.action" visible="true" level="2"/>
+		</menu>
+</css-menu>

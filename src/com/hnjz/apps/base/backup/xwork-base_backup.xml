@@ -1,0 +1,33 @@
+<!DOCTYPE xwork
+    PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+<xwork>
+	<package name="acl_data_backup" extends="webwork-default" systemId="1001" caption="关键数据备份">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="dirDataBackup" class="com.hnjz.apps.base.backup.action.DirDataBackup" caption="查询备份" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/acl/backup/dirdatabackup.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">doError.action</param>
+			</result>
+		</action>
+		<action name="addDataBackup" class="com.hnjz.apps.base.backup.action.AddDataBackup" caption="添加备份" event-type="5">
+			<result name="success" type="json" />
+			<result name="error" type="json" />
+		</action>
+		<action name="delDataBackup" class="com.hnjz.apps.base.backup.action.DelDataBackup" caption="删除备份" event-type="5">
+			<result name="success" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/resultjson.jsp</param>
+			</result>
+		</action>
+		<action name="addDataBackupAbstract" class="com.hnjz.apps.base.backup.action.AddDataBackupAbstract"
+			caption="自动添加备份"  event-type="5">
+			<result name="success" type="json" />
+			<result name="error" type="json" />
+		</action>
+	</package>
+</xwork>
